@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/05 07:22:49 by abossard         ###   ########.fr       */
+/*   Created: 2018/07/05 08:25:59 by abossard          #+#    #+#             */
+/*   Updated: 2018/07/05 08:59:09 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+s_params	*init_params()
 {
-	int i;
+	s_params	*liste = malloc(sizeof(*liste));
 
-	while (format[i] != '%')
-	{
-		buf[i] = str[i];
-		i++;
-	}
 }
