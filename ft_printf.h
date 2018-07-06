@@ -6,13 +6,13 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/05 08:59:12 by abossard         ###   ########.fr       */
+/*   Updated: 2018/07/06 16:55:40 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF
 # define FT_PRINTF
-#include <stdarg>
+#include <stdarg.h>
 
 typedef struct			s_params
 {
@@ -41,6 +41,6 @@ typedef struct			s_infos
 	int					order;
 	int					i;
 	int					j;
-}
+}						t_infos;
 
 #endif
