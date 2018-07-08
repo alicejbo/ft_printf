@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/11/08 18:44:05 by abossard          #+#    #+#             */
+/*   Updated: 2018/02/18 16:57:21 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+size_t	ft_strlen(const char *str)
 {
-	va_list ap;
-	int		i;
-	
+	int i;
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
 		i++;
 	}
+	return (i);
 }

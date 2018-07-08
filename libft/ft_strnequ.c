@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/12/04 17:49:45 by abossard          #+#    #+#             */
+/*   Updated: 2017/12/05 00:00:46 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	va_list ap;
-	int		i;
-	
-	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
-	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
-		i++;
-	}
+	if (!s1 || !s2)
+		return (0);
+	if (ft_strncmp(s1, s2, n))
+		return (0);
+	return (1);
 }

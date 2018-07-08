@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/11/16 02:58:28 by abossard          #+#    #+#             */
+/*   Updated: 2017/11/20 18:50:45 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <string.h>
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	va_list ap;
-	int		i;
-	
+	int i;
+	int j;
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
-	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
+	j = 0;
+	while (s1[i] != '\0')
 		i++;
+	while (s2[j] != '\0')
+	{
+		s1[i] = s2[j];
+		i++;
+		j++;
 	}
+	s1[i] = '\0';
+	return (s1);
 }

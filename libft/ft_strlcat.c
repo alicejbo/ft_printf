@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/11/20 19:10:14 by abossard          #+#    #+#             */
+/*   Updated: 2017/11/30 22:45:06 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
 {
-	va_list ap;
-	int		i;
-	
+	size_t	i;
+	size_t	j;
+	size_t	len;
+	size_t	ret;
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
+	j = 0;
+	ret = ft_strlen(dst);
+	len = size - 1;
+	if (size > ret)
 	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
-		i++;
+		while (dst[i] != '\0')
+			i++;
+		while (src[j] != '\0' && i + j < len)
+		{
+			dst[i + j] = src[j];
+			j++;
+		}
+		dst[i + j] = '\0';
+		return (ret + ft_strlen(src));
 	}
+	return (ft_strlen(src) + size);
 }

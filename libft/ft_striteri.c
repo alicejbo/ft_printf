@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/12/01 06:37:45 by abossard          #+#    #+#             */
+/*   Updated: 2017/12/04 23:54:11 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	va_list ap;
-	int		i;
-	
+	unsigned int i;
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
-	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
-		i++;
-	}
+	if (s && f)
+		while (*s != '\0')
+		{
+			f(i, s);
+			i++;
+			s++;
+		}
 }

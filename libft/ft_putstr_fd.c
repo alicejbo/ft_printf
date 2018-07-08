@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/11/20 22:48:15 by abossard          #+#    #+#             */
+/*   Updated: 2017/11/21 22:29:03 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	va_list ap;
-	int		i;
-	
+	int i;
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
+	while (s[i] != '\0')
 	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
 }

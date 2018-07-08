@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/11/22 20:03:29 by abossard          #+#    #+#             */
+/*   Updated: 2017/11/30 14:02:22 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	va_list ap;
-	int		i;
-	
-	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
-	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
-		i++;
-	}
+	char tmpo[len][len];
+
+	ft_memcpy(tmpo, src, len);
+	ft_memcpy(dst, tmpo, len);
+	return (dst);
 }

@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/12/04 22:20:30 by abossard          #+#    #+#             */
+/*   Updated: 2017/12/04 23:36:27 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+char	*ft_strtrim(char const *s)
 {
-	va_list ap;
 	int		i;
-	
+	int		j;
+	char	*str;
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
-	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
+	if (!s)
+		return (NULL);
+	j = ft_strlen(s) - 1;
+	while (ft_isspace(s[i]) && s[i] != '\0')
 		i++;
-	}
+	while (j > 0 && ft_isspace(s[j]))
+		j--;
+	j++;
+	if (i > j)
+		return (ft_strdup(""));
+	str = ft_strsub(s, i, (j - i));
+	return (str);
 }

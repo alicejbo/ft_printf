@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/11/22 16:21:29 by abossard          #+#    #+#             */
+/*   Updated: 2017/11/22 17:24:31 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	va_list ap;
-	int		i;
-	
+	size_t i;
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
+	while (i < n)
 	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
+		((char *)dst)[i] = ((char *)src)[i];
 		i++;
 	}
+	return (dst);
 }

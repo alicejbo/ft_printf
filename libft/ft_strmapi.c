@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/12/02 17:01:41 by abossard          #+#    #+#             */
+/*   Updated: 2017/12/04 23:57:03 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	va_list ap;
-	int		i;
-	
+	char			*tmp;
+	char			*res;
+	unsigned int	i;
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
+	if (!s || !f)
+		return (NULL);
+	if (!(tmp = ft_strdup(s)))
+		return (NULL);
+	res = tmp;
+	while (*s != '\0')
 	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
+		*tmp = f(i, *s);
+		s++;
+		tmp++;
 		i++;
 	}
+	return (res);
 }

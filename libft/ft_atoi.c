@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/11/30 14:54:00 by abossard          #+#    #+#             */
+/*   Updated: 2017/12/03 01:30:39 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+int		ft_atoi(const char *str)
 {
-	va_list ap;
-	int		i;
-	
+	int i;
+	int neg;
+	int nb;
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
+	neg = 0;
+	nb = 0;
+	while ((str[i] >= '\a' && str[i] <= '\r') || (str[i] == ' '))
+		i++;
+	if (str[i] == '-')
+		neg = 1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
+		nb *= 10;
+		nb += str[i] - '0';
 		i++;
 	}
+	if (neg)
+		return (-nb);
+	else
+		return (nb);
 }

@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/12/04 21:30:23 by abossard          #+#    #+#             */
+/*   Updated: 2017/12/05 00:03:20 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	va_list ap;
-	int		i;
-	
+	char	*res;
+	size_t	i;
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
+	if (!s)
+		return (NULL);
+	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	while (s[start] != '\0' && i < len)
 	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
+		res[i] = s[start];
 		i++;
+		start++;
 	}
+	res[i] = '\0';
+	return (res);
 }

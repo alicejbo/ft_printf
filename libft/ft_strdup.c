@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/11/15 22:06:41 by abossard          #+#    #+#             */
+/*   Updated: 2017/12/02 16:58:13 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+char	*ft_strdup(const char *s1)
 {
-	va_list ap;
+	char	*s2;
 	int		i;
-	
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
+	if (!(s2 = (char *)malloc(sizeof(*s2) * (ft_strlen(s1) + 1))))
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
+		s2[i] = s1[i];
 		i++;
 	}
+	s2[i] = '\0';
+	return (s2);
 }

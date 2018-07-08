@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/12/01 02:42:16 by abossard          #+#    #+#             */
+/*   Updated: 2017/12/02 16:25:48 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+void	*ft_memalloc(size_t size)
 {
-	va_list ap;
-	int		i;
-	
+	void	*esp;
+	size_t	i;
+
 	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
+	if (!(esp = malloc(size * sizeof(void))))
+		return (0x0);
+	while (i < size)
 	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
+		((unsigned char *)esp)[i] = 0;
 		i++;
 	}
+	return (esp);
 }

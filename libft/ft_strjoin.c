@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:44 by abossard         ###   ########.fr       */
+/*   Created: 2017/12/04 21:53:11 by abossard          #+#    #+#             */
+/*   Updated: 2017/12/05 00:09:01 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	va_list ap;
+	char	*res;
 	int		i;
-	
-	i = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
+	int		n;
+
+	n = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	i = ft_strlen(s1);
+	i += ft_strlen(s2);
+	if (!(res = (char *)malloc(sizeof(char) * (i + 1))))
+		return (NULL);
+	i = -1;
+	while (s1[++i] != '\0')
 	{
-		if (format[i] == '%' && (format[i + 1] != '%' || format[i + 1] != 'n'))
-			t_args->arg++;
-		i++;
+		res[n] = s1[i];
+		n++;
 	}
+	i = -1;
+	while (s2[++i] != '\0')
+	{
+		res[n] = s2[i];
+		n++;
+	}
+	res[n] = '\0';
+	return (res);
 }
