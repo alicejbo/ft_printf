@@ -6,13 +6,11 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 02:57:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/08 06:57:47 by abossard         ###   ########.fr       */
+/*   Updated: 2018/07/10 06:37:44 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdarg.h>
+#include "ft_printf.h"
 
 void	ma_printf(char *str, ...)
 {

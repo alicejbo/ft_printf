@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 08:25:59 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/09 07:27:27 by abossard         ###   ########.fr       */
+/*   Updated: 2018/07/10 06:57:09 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,11 @@ t_params	*init_params(t_params **begin_list)
 	{
 		printf("f\n");
 		element = *begin_list;
-		while (element != NULL)
+		while (element->next != NULL)
 			element = element->next;
-		element = NULL;
-		element = ft_memalloc(sizeof(t_params));
+		element->next = ft_memalloc(sizeof(t_params));
 	}
-	return(element);
+	return(element->next);
 }
 
 void		delete_params(t_params **begin_list)

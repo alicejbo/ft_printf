@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/09 07:14:06 by abossard         ###   ########.fr       */
+/*   Updated: 2018/07/10 06:47:45 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <stdio.h>
 #include "libft/libft.h"
 #define I p->i
+#define NBR p->nbr
+#define J p->j
 
 typedef struct			s_params
 {
@@ -46,6 +48,35 @@ typedef struct			s_infos
 	int					order;
 	int					i;
 	int					j;
+	int					nbr;
 }						t_infos;
+
+/*
+** ft_printf.c
+*/
+
+int			count_args(const char *format, t_infos *p);
+void		fill_list(const char *format, t_infos *p, va_list ap);
+int			ft_printf(const char *format, ...);
+
+/*
+** list_args.c
+*/
+
+t_args		*init_args(t_args **begin_list);
+void		delete_args(t_args **begin_list);
+
+/*
+** list_params.c
+*/
+
+t_params	*init_params(t_params **begin_list);
+void		delete_params(t_params **begin_list);
+
+/*
+** struct_infos.c
+*/
+
+void		delete_infos(t_infos **begin_list);
 
 #endif
