@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/12 05:13:28 by abossard         ###   ########.fr       */
+/*   Updated: 2018/07/19 16:08:53 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 #define NBR p->nbr
 #define J p->j
 #define PAR p->par
+#define K p->k
+#define L p->l
 
 typedef struct			s_params
 {
@@ -50,6 +52,8 @@ typedef struct			s_infos
 	int					order;
 	int					i;
 	int					j;
+	int					k;
+	int					l;
 	int					nbr;
 }						t_infos;
 
@@ -86,7 +90,7 @@ void		delete_infos(t_infos **begin_list);
 */
 
 void		parse_args1(char *str, t_infos *p, t_params *par);
-
+void		parse_args2(char *str, t_infos *p, t_params *par);
 /*
 ** boucle_ppale.c
 */
