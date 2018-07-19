@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/19 16:08:53 by abossard         ###   ########.fr       */
+/*   Updated: 2018/07/19 23:47:47 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void		delete_infos(t_infos **begin_list);
 */
 
 void		parse_args1(char *str, t_infos *p, t_params *par);
-void		parse_args2(char *str, t_infos *p, t_params *par);
+
 /*
 ** boucle_ppale.c
 */
