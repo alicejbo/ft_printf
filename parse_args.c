@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 01:26:31 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/19 16:08:48 by abossard         ###   ########.fr       */
+/*   Updated: 2018/07/19 20:12:49 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void	parse_args2(char *str, t_infos *p, t_params *par)
 		L = K;
 		while (str[K] >= '0' && str[K] <= '9')
 			K++;
-		ft_atoi(ft_strsub(str, L, (K - L)));
+		par->prec = ft_atoi(ft_strsub(str, L, (K - L)));
 	}
 }
