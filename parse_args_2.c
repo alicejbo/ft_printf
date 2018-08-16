@@ -6,20 +6,47 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 15:09:59 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/20 16:52:12 by abossard         ###   ########.fr       */
+/*   Updated: 2018/08/16 02:21:19 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	parse_args5(char *str, t_infos *p, t_params *par);
+void	parse_args6(char *str, t_infos *p, t_params *par)
+{
+	par->str = str;
 
-void	parse_args4(char *str, t_infos *p, t_params *par)
+	 if (str[K] == 'S')
+		 par->type = 'S';
+	 if (str[K] == 'D')
+		 par->type = 'D';
+	 if (str[K] == 'O')
+		 par->type = 'O';
+	 if (str[K] == 'U')
+		 par->type = 'U';
+}
+
+void	parse_args5(char *str, t_infos *p, t_params *par)
 {
 	par->str = str;
 
 	 if (str[K] == 'c')
 		 par->type = 'c';
-	 if(str[K] == 'd' || str[K] == 'i'
-	parse_args5(str, p, par);
+	 if (str[K] == 'd' || str[K] == 'i')
+		 par->type = 'i';
+	 if (str[K] == 'u')
+		 par->type = 'U';
+	 if (str[K] == 'o')
+		 par->type = 'o';
+	 if (str[K] == 'x')
+		 par->type = 'x';
+	 if (str[K] == 'X')
+		 par->type = 'X';
+	 if (str[K] == 's')
+		 par->type = 's';
+	 if (str[K] == 'p')
+		 par->type = 'p';
+	 if (str[K] == 'C')
+		 par->type = 'C';
+	parse_args6(str, p, par);
 }
