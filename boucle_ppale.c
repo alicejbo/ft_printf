@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 04:53:33 by abossard          #+#    #+#             */
-/*   Updated: 2018/08/16 03:38:28 by abossard         ###   ########.fr       */
+/*   Updated: 2018/08/20 00:53:10 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	boucle_ppale(const char *format, t_infos *p)
 {
 	PAR->str = ft_strsub(format, J, (I - J));
+	p->size_buf = p->size_buf + ft_strlen(PAR->str);
 	J = I;
 	I++;
 	PAR->size_str = ft_strlen(PAR->str);

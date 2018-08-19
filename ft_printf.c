@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/08/16 03:35:42 by abossard         ###   ########.fr       */
+/*   Updated: 2018/08/20 00:29:57 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,22 +67,19 @@ int		ft_printf(const char *format, ...)
 	J = 0;
 	while (format[I] != '\0')
 	{
-		printf("____\n");
 		if (format[I] == '%')
-		{
-			printf("|||||\n");
 			boucle_ppale(format, p);
-		}
 		I++;
 	}
 	PAR->str = ft_strsub(format, J, (I - J));
+	p->size_buf = p->size_buf + ft_strlen(PAR->str);
 	PAR = p->para_beg;
 	while (PAR != NULL)
 	{
-		printf("qqq\n");
 		printf("the line is: %s\n", PAR->str);
 		PAR = PAR->next;
 	} 
+	display(p, p->para_beg);
 	return (0);
 }
 
