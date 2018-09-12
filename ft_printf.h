@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/08/20 00:09:57 by abossard         ###   ########.fr       */
+/*   Updated: 2018/09/12 20:43:23 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct			s_params
 	int					prec;
 	int					length;
 	char				type;
+	void				*w_arg;
 	struct s_params		*next;
 }						t_params;
 
@@ -49,12 +50,14 @@ typedef struct			s_infos
 	t_params			*para_beg;
 	t_args				*args_beg;
 	t_params			*par;
+	t_args				*arg_info;
 	int					order;
 	int					i;
 	int					j;
 	int					k;
 	int					l;
 	int					nbr;
+	int					pos_arg;
 }						t_infos;
 
 /*
@@ -114,5 +117,17 @@ void		direction1(t_infos *p, t_params *par);
 */
 
 void	display(t_infos *p, t_params *par);
+
+/*
+** which_arg.c
+*/
+
+void	which_arg(t_infos *p, t_params *par);
+
+/*
+** flag_i.c
+*/
+
+void	flag_i(t_infos *p, t_params *par);
 
 #endif

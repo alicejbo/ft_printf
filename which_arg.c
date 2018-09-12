@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_i.c                                           :+:      :+:    :+:   */
+/*   which_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/12 20:27:38 by abossard         ###   ########.fr       */
+/*   Created: 2018/09/12 19:16:11 by abossard          #+#    #+#             */
+/*   Updated: 2018/09/12 21:00:06 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	flag_i(t_infos *p, t_params *par)
+void	which_arg(t_infos *p, t_params *par)
 {
-	int size;
-	size = ft_strlen(p->arg);
-	printf("taille arg = %d", size);
-} 
+	int		count;
+
+	count = -1;
+	p->arg_info = p->args_beg;
+	while (p->arg_info != NULL)
+	{
+		count++;
+		if (count == p->pos_arg)
+			par->w_arg = p->arg_info->arg;
+		p->arg_info = p->arg_info->next;
+	}
+}

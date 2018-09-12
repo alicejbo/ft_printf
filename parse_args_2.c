@@ -6,11 +6,21 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 15:09:59 by abossard          #+#    #+#             */
-/*   Updated: 2018/08/20 00:50:35 by abossard         ###   ########.fr       */
+/*   Updated: 2018/09/12 20:42:43 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	parse_args7(char *str, t_infos *p, t_params *par)
+{
+	p->pos_arg = p->pos_arg + 1;
+	which_arg(p, par);
+	printf("which arg %d\n", (int)par->w_arg);
+	printf("pos arg %d\n", p->pos_arg);
+	ft_strdel(&par->str);
+	direction1(p, par);
+}
 
 void	parse_args6(char *str, t_infos *p, t_params *par)
 {
@@ -27,15 +37,13 @@ void	parse_args6(char *str, t_infos *p, t_params *par)
 	 if (str[K] >= 68 && str[K] <= 87)
 		 par->length = 3;
 	priorities(par);
-	ft_strdel(&par->str);
-	direction1(p, par);
+	parse_args7(str, p, par);
 }
 
 void	parse_args5(char *str, t_infos *p, t_params *par)
 {
 	par->str = str;
 
-	printf("\nferme la : %s\n", str + K);
 	 if (str[K] == 'c')
 		 par->type = 'c';
 	 if (str[K] == 'd' || str[K] == 'i')

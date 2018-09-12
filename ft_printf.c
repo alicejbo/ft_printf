@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/08/20 00:29:57 by abossard         ###   ########.fr       */
+/*   Updated: 2018/09/12 21:00:35 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		ft_printf(const char *format, ...)
 	t_infos		*p;
 
 	p = ft_memalloc(sizeof(t_infos));
+	p->pos_arg = -1;
 	PAR = init_params(&p->para_beg);
 	va_start(ap, format);
 	fill_list(format, p, ap);
@@ -85,6 +86,5 @@ int		ft_printf(const char *format, ...)
 
 int		main(int ac, char **av)
 {
-	ft_printf(av[1], "bite", "de", "cheval", "feuille", "de", "bricks", "je", 
-			"te", "kiffe", "mon", "coeur");
+	ft_printf(av[1], 1,2,3);
 }
