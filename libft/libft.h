@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 00:22:04 by abossard          #+#    #+#             */
-/*   Updated: 2018/04/08 17:41:05 by abossard         ###   ########.fr       */
+/*   Updated: 2018/09/16 21:37:36 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ char				*ft_strjoinfree(char *s1, char *s2, int opt);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
+char				*ft_itoa_ll(long long int n);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(char const *s);

@@ -6,7 +6,7 @@
 #    By: abossard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 23:02:52 by abossard          #+#    #+#              #
-#    Updated: 2018/03/30 20:29:38 by abossard         ###   ########.fr        #
+#    Updated: 2018/09/16 20:33:20 by abossard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ SRC = ft_strlen.c\
 	  ft_strmapi.c\
 	  ft_strsplit.c\
 	  ft_itoa.c\
+	  ft_itoa_ll.c\
 	  ft_strequ.c\
 	  ft_strnequ.c\
 	  ft_strsub.c\

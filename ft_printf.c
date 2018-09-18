@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/12 21:00:35 by abossard         ###   ########.fr       */
+/*   Updated: 2018/09/18 19:36:24 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		count_args(const char *format, t_infos *p)
 		}
 		I++;
 	}
-	printf("nbr d'arg = %d\n", NBR);
+	printf("-----------------\n| nbr d'arg = %d |\n-----------------\n", NBR);
 	return (NBR);
 }
 
@@ -51,8 +51,6 @@ void	fill_list(const char *format, t_infos *p, va_list ap)
 		I++;
 	}
 }
-
-
 
 int		ft_printf(const char *format, ...)
 {
@@ -75,16 +73,17 @@ int		ft_printf(const char *format, ...)
 	PAR->str = ft_strsub(format, J, (I - J));
 	p->size_buf = p->size_buf + ft_strlen(PAR->str);
 	PAR = p->para_beg;
-	while (PAR != NULL)
+/*	while (PAR != NULL)
 	{
-		printf("the line is: %s\n", PAR->str);
+		printf("~~~~~~~~~~~~~~~~~\n| the line is: %s |\n", PAR->str);
 		PAR = PAR->next;
-	} 
+	} */
 	display(p, p->para_beg);
 	return (0);
 }
 
 int		main(int ac, char **av)
 {
-	ft_printf(av[1], 1,2,3);
+	ft_printf(av[1], -390000000);
+	//marche pas quand inferieur a 10
 }
