@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 01:26:31 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/16 23:52:22 by abossard         ###   ########.fr       */
+/*   Updated: 2018/09/26 17:17:06 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	parse_args4(char *str, t_infos *p, t_params *par)
 		par->length = 4;
 		K++;
 	}
-	if (str[K] == 'L')
+	if (str[K] == 'j')
 		par->length = 5;
 	if (str[K] == 'z')
 		par->length = 6;

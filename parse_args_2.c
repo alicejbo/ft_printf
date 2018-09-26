@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 15:09:59 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/18 17:16:49 by abossard         ###   ########.fr       */
+/*   Updated: 2018/09/26 18:23:09 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	parse_args7(char *str, t_infos *p, t_params *par)
 {
 	p->pos_arg = p->pos_arg + 1;
 	which_arg(p, par);
-	printf("@@@@@@@@@@@@@@@@@\n| which arg %lld   |\n", (long long int)par->w_arg);
-	printf("| pos arg %d     |\n@@@@@@@@@@@@@@@@@\n", p->pos_arg);
+//	printf("@@@@@@@@@@@@@@@@@\n| which arg %lld   |\n", (long long int)par->w_arg);
+//	printf("| pos arg %d     |\n@@@@@@@@@@@@@@@@@\n", p->pos_arg);
 	ft_strdel(&par->str);
 	direction1(p, par);
 }

@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/18 19:36:24 by abossard         ###   ########.fr       */
+/*   Updated: 2018/09/26 18:53:52 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	fill_list(const char *format, t_infos *p, va_list ap)
 	{
 		ptr = init_args(&p->args_beg);
 		ptr->arg = va_arg(ap, void*);
+		printf("ptr->arg = %lld\n", (long long int)ptr->arg);
 		I++;
 	}
 }
@@ -84,6 +85,6 @@ int		ft_printf(const char *format, ...)
 
 int		main(int ac, char **av)
 {
-	ft_printf(av[1], -390000000);
+	ft_printf(av[1], -123456789);
 	//marche pas quand inferieur a 10
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abossard <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: abossard <abossard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 23:02:52 by abossard          #+#    #+#              #
-#    Updated: 2018/09/16 20:33:20 by abossard         ###   ########.fr        #
+#    Updated: 2018/09/26 19:20:46 by abossard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 SRC = ft_strlen.c\
 	  ft_strdup.c\
@@ -65,7 +65,8 @@ SRC = ft_strlen.c\
 	  ft_strmapi.c\
 	  ft_strsplit.c\
 	  ft_itoa.c\
-	  ft_itoa_ll.c\
+	  ft_itoa_base_ll.c\
+	  ft_itoa_base.c\
 	  ft_strequ.c\
 	  ft_strnequ.c\
 	  ft_strsub.c\
