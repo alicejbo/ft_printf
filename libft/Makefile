@@ -6,7 +6,7 @@
 #    By: abossard <abossard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 23:02:52 by abossard          #+#    #+#              #
-#    Updated: 2018/09/26 19:20:46 by abossard         ###   ########.fr        #
+#    Updated: 2018/09/26 20:14:42 by abossard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror
 
 SRC = ft_strlen.c\
 	  ft_strdup.c\

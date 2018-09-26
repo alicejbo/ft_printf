@@ -19,8 +19,8 @@
 #include "libft/libft.h"
 #define I p->i
 #define NBR p->nbr
-#define J p->j
 #define PAR p->par
+#define J p->j
 #define K p->k
 #define L p->l
 
