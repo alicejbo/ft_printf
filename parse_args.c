@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 01:26:31 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/26 17:17:06 by abossard         ###   ########.fr       */
+/*   Updated: 2018/09/30 20:29:38 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	priorities(t_params *par)
 	if (par->flags[0] == 1)
 		if (par->flags[4] == 1)
 			par->flags[4] = 0;
+	if (par->prec > 0)
+		par->flags[3] = 0;
 }
 
 void	parse_args4(char *str, t_infos *p, t_params *par)

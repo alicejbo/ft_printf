@@ -6,11 +6,62 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/26 20:43:02 by abossard         ###   ########.fr       */
+/*   Updated: 2018/09/30 22:42:36 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char	*prec_i(t_infos *p, t_params *par, char *baba)
+{
+	int diff;
+	int i;
+	char *baba2;
+
+	diff = (par->prec - ft_strlen(baba));
+	baba2 = ft_memalloc(par->size_str);
+	if(baba[0] >= '0' && baba[0] <= '9')
+		i = 0;
+	else if (baba[0] == '-')
+	{
+		i = 1;
+		baba2[0] = '-';
+		diff = diff + 2;
+	}
+	while (i < diff)
+	{
+		baba2[i] = '0';
+		i++;
+	}
+	if (baba[0] == '-')
+		ft_strcpy(baba2 + i, baba + 1);
+	else
+		ft_strcpy(baba2 + i, baba);
+	return(baba2);
+}
+
+void	nb_seul(t_infos *p, t_params *par, char *baba)
+{
+	if(par->flags[0] == 1 || par->flags[4] == 1)
+	{
+		if (baba[0] >= '0' && baba[0] <= '9')
+			par->str[0] = (par->flags[0] == 1) ? '+' : ' ';
+	}
+	ft_strcat(par->str, baba);
+}
+
+void	rempli_i(t_infos *p, t_params *par, char *baba, int size_nb)
+{
+	int i;
+
+	i = 0;
+	if (par->prec > ft_strlen(baba))
+		baba = prec_i(p, par, baba);
+	if (par->size_str > size_nb)
+		flag_i2(p, par, baba, size_nb);
+	else
+		nb_seul(p, par, baba);
+}
 
 char	*length_i(t_infos *p, t_params *par)
 {
@@ -33,31 +84,32 @@ char	*length_i(t_infos *p, t_params *par)
 	return(baba);
 }
 
-void	rempli_i(t_infos *p, t_params *par)
-{
-BITE DE MES DEUX
-}
-
 void	flag_i(t_infos *p, t_params *par)
 {
-	int		size;
 	int		i;
 	char	*baba;
+	int		size_nb;
 
 	baba = length_i(p, par);
-	size = ft_strlen(baba);
-	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", size, baba);
+	par->size_str = ft_strlen(baba);
+	size_nb = ft_strlen(baba);
+	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
+			par->size_str, baba);
 	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
-	printf("length 2 = %+.2i\n", par->length);
 	printf("test = %s\n", ft_itoa_base(-1, 10));
 	if (par->flags[0] == 1 || par->flags[4] == 1)
 		if (baba[0] != '-')
-			size++;
-	if (size < par->width)
-		size = par->width;
-	if (size < par->prec)
-		size = par->prec;
-	printf("size 2 = %d\n\n", size);
-	par->str = ft_memalloc(size);
-	rempli_i(p, par);
+		{
+			par->size_str++;
+			size_nb++;
+		}
+	if (par->size_str < par->width)
+		par->size_str = par->width;
+	if (size_nb < par->prec)
+		size_nb = par->prec;
+	if (size_nb > par->size_str)
+		par->size_str = size_nb;
+	printf("size 2 = %d\n\n", par->size_str);
+	par->str = ft_memalloc(par->size_str);
+	rempli_i(p, par, baba, size_nb);
 }
