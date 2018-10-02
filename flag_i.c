@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/30 22:42:36 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/02 13:23:51 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ void	flag_i(t_infos *p, t_params *par)
 	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
 			par->size_str, baba);
 	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
-	printf("test = %s\n", ft_itoa_base(-1, 10));
 	if (par->flags[0] == 1 || par->flags[4] == 1)
 		if (baba[0] != '-')
 		{
@@ -112,4 +111,5 @@ void	flag_i(t_infos *p, t_params *par)
 	printf("size 2 = %d\n\n", par->size_str);
 	par->str = ft_memalloc(par->size_str);
 	rempli_i(p, par, baba, size_nb);
+	ft_strdel(&baba);
 }
