@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/30 22:42:46 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/02 15:15:42 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,13 @@ int		ft_printf(const char *format, ...)
 		PAR = PAR->next;
 	} */
 	display(p, p->para_beg);
+	delete_infos(&p);
 	return (0);
 }
 
 int		main(int ac, char **av)
 {
-	ft_printf(av[1], 10);
+	ft_printf(av[1], -10, 10);
+	while(1);
 	//marche pas quand inferieur a 10
 }

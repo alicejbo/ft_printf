@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/02 13:23:51 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/02 15:57:46 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,17 @@ void	nb_seul(t_infos *p, t_params *par, char *baba)
 
 void	rempli_i(t_infos *p, t_params *par, char *baba, int size_nb)
 {
-	int i;
+	int		i;
+	char	*nb_preci;
 
 	i = 0;
 	if (par->prec > ft_strlen(baba))
-		baba = prec_i(p, par, baba);
+	{
+		nb_preci = ft_strdup(baba);
+		ft_strdel(&baba);
+		baba = prec_i(p, par, nb_preci);
+		ft_strdel(&nb_preci);
+	}
 	if (par->size_str > size_nb)
 		flag_i2(p, par, baba, size_nb);
 	else

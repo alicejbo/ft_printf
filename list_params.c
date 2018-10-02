@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 08:25:59 by abossard          #+#    #+#             */
-/*   Updated: 2018/08/16 02:04:04 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/02 15:57:50 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void		delete_params(t_params **begin_list)
 	element = *begin_list;
 	while (element != NULL)
 		{
+			ft_strdel(&element->str);
 			delete = element;
 			element = element->next;
 			free(delete);

@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 05:01:13 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/10 05:24:44 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/02 15:19:01 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void		delete_infos(t_infos **begin_list)
 	ft_strdel(&p->buf);
 	delete_args(&p->args_beg);
 	delete_params(&p->para_beg);
-	free(begin_list);
+	free(*begin_list);
 	*begin_list = NULL;
 }
