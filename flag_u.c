@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_o.c                                           :+:      :+:    :+:   */
+/*   flag_u.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/05 12:17:41 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/05 12:24:56 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*prec_o(t_infos *p, t_params *par, char *baba)
+char	*prec_u(t_infos *p, t_params *par, char *baba)
 {
 	int diff;
 	int i;
@@ -40,7 +40,17 @@ char	*prec_o(t_infos *p, t_params *par, char *baba)
 	return(baba2);
 }
 
-void	rempli_o(t_infos *p, t_params *par, char *baba, int size_nb)
+void	nb_seul_u(t_infos *p, t_params *par, char *baba)
+{
+	if(par->flags[0] == 1 || par->flags[4] == 1)
+	{
+		if (baba[0] >= '0' && baba[0] <= '9')
+			par->str[0] = (par->flags[0] == 1) ? '+' : ' ';
+	}
+	ft_strcat(par->str, baba);
+}
+
+void	rempli_u(t_infos *p, t_params *par, char *baba, int size_nb)
 {
 	int		i;
 	char	*nb_preci;
@@ -50,55 +60,54 @@ void	rempli_o(t_infos *p, t_params *par, char *baba, int size_nb)
 	{
 		nb_preci = ft_strdup(baba);
 		ft_strdel(&baba);
-		baba = prec_o(p, par, nb_preci);
+		baba = prec_u(p, par, nb_preci);
 		ft_strdel(&nb_preci);
 	}
 	if (par->size_str > size_nb)
-		flag_o2(p, par, baba, size_nb);
-	else if (par->flags[2] == 1)
-	{
-		par->str[0] = '0';
-		ft_strcat(par->str + 1, baba);
-	}
+		flag_u2(p, par, baba, size_nb);
 	else
-		ft_strcat(par->str, baba);
+		nb_seul_u(p, par, baba);
 }
 
-char	*length_o(t_infos *p, t_params *par)
+char	*length_u(t_infos *p, t_params *par)
 {
 	char	*baba;
 
 	if (par->length == 0)
-		baba = ft_itoa_base((unsigned int)par->w_arg, 8);
+		baba = ft_itoa_base((int)par->w_arg, 10);
 	if (par->length == 1)
-		baba = ft_itoa_base_ll((unsigned short int)par->w_arg, 8);
+		baba = ft_itoa_base_ll((short int)par->w_arg, 10);
 	if (par->length == 2)
-		baba = ft_itoa_base_ll((unsigned char)par->w_arg, 8);
+		baba = ft_itoa_base_ll((signed char)par->w_arg, 10);
 	if (par->length == 3)
-		baba = ft_itoa_base_ll((unsigned long int)par->w_arg, 8);
+		baba = ft_itoa_base_ll((long int)par->w_arg, 10);
 	if (par->length == 4)
-		baba = ft_itoa_base((unsigned long long int)par->w_arg, 8);
+		baba = ft_itoa_base((long long int)par->w_arg, 10);
 	if (par->length == 5)
-		baba = ft_itoa_base_ll((uintmax_t)par->w_arg, 8);
+		baba = ft_itoa_base_ll((uintmax_t)par->w_arg, 10);
 	if (par->length == 6)
-		baba = ft_itoa_base_ll((ssize_t)par->w_arg, 8);
+		baba = ft_itoa_base_ll((size_t)par->w_arg, 10);
 	return(baba);
 }
 
-void	flag_o(t_infos *p, t_params *par)
+void	flag_u(t_infos *p, t_params *par)
 {
 	int		i;
 	char	*baba;
 	int		size_nb;
 
-	baba = length_o(p, par);
+	baba = length_u(p, par);
 	par->size_str = ft_strlen(baba);
 	size_nb = ft_strlen(baba);
 	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
 			par->size_str, baba);
 	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
-//	if (par->flags[2] == 1)
-//		size_nb++;
+	if (par->flags[0] == 1 || par->flags[4] == 1)
+		if (baba[0] != '-')
+		{
+			par->size_str++;
+			size_nb++;
+		}
 	if (par->size_str < par->width)
 		par->size_str = par->width;
 	if (size_nb < par->prec)
@@ -107,6 +116,6 @@ void	flag_o(t_infos *p, t_params *par)
 		par->size_str = size_nb;
 	printf("size 2 = %d\n\n", par->size_str);
 	par->str = ft_memalloc(par->size_str);
-	rempli_o(p, par, baba, size_nb);
-//	ft_strdel(&baba);
+	rempli_u(p, par, baba, size_nb);
+	ft_strdel(&baba);
 }

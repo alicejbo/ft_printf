@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/02 18:44:10 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/05 12:08:06 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int		ft_printf(const char *format, ...)
 
 int		main(int ac, char **av)
 {
-	ft_printf(av[1], 10);
+	ft_printf(av[1], -10);
 //	while(1);
 	//marche pas quand inferieur a 10
 }
