@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/02 15:57:46 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/16 15:31:26 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	nb_seul(t_infos *p, t_params *par, char *baba)
 	ft_strcat(par->str, baba);
 }
 
-void	rempli_i(t_infos *p, t_params *par, char *baba, int size_nb)
+char	*rempli_i(t_infos *p, t_params *par, char *baba, int size_nb)
 {
 	int		i;
 	char	*nb_preci;
@@ -67,6 +67,7 @@ void	rempli_i(t_infos *p, t_params *par, char *baba, int size_nb)
 		flag_i2(p, par, baba, size_nb);
 	else
 		nb_seul(p, par, baba);
+	return (baba);
 }
 
 char	*length_i(t_infos *p, t_params *par)
@@ -116,6 +117,6 @@ void	flag_i(t_infos *p, t_params *par)
 		par->size_str = size_nb;
 	printf("size 2 = %d\n\n", par->size_str);
 	par->str = ft_memalloc(par->size_str);
-	rempli_i(p, par, baba, size_nb);
+	baba = rempli_i(p, par, baba, size_nb);
 	ft_strdel(&baba);
 }

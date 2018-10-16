@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 00:22:04 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/25 17:41:55 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/16 19:27:01 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ void				ft_putstr_fd(char const *s, int fd);
 int					ft_isspace(int c);
 int					ft_isupper(int c);
 int					ft_islower(int c);
-
+char				*ft_str_upper(char *str);
 #endif

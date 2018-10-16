@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/05 12:17:41 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/16 19:02:38 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,17 @@ char	*prec_o(t_infos *p, t_params *par, char *baba)
 
 	diff = (par->prec - ft_strlen(baba));
 	baba2 = ft_memalloc(par->size_str);
-	if(baba[0] >= '0' && baba[0] <= '9')
-		i = 0;
-	else if (baba[0] == '-')
-	{
-		i = 1;
-		baba2[0] = '-';
-		diff = diff + 2;
-	}
+	i = 0;
 	while (i < diff)
 	{
 		baba2[i] = '0';
 		i++;
 	}
-	if (baba[0] == '-')
-		ft_strcpy(baba2 + i, baba + 1);
-	else
-		ft_strcpy(baba2 + i, baba);
+	ft_strcpy(baba2 + i, baba);
 	return(baba2);
 }
 
-void	rempli_o(t_infos *p, t_params *par, char *baba, int size_nb)
+char	*rempli_o(t_infos *p, t_params *par, char *baba, int size_nb)
 {
 	int		i;
 	char	*nb_preci;
@@ -62,6 +52,7 @@ void	rempli_o(t_infos *p, t_params *par, char *baba, int size_nb)
 	}
 	else
 		ft_strcat(par->str, baba);
+	return (baba);
 }
 
 char	*length_o(t_infos *p, t_params *par)
@@ -97,8 +88,8 @@ void	flag_o(t_infos *p, t_params *par)
 	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
 			par->size_str, baba);
 	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
-//	if (par->flags[2] == 1)
-//		size_nb++;
+	if (par->flags[2] == 1)
+		size_nb++;
 	if (par->size_str < par->width)
 		par->size_str = par->width;
 	if (size_nb < par->prec)
@@ -107,6 +98,6 @@ void	flag_o(t_infos *p, t_params *par)
 		par->size_str = size_nb;
 	printf("size 2 = %d\n\n", par->size_str);
 	par->str = ft_memalloc(par->size_str);
-	rempli_o(p, par, baba, size_nb);
-//	ft_strdel(&baba);
+	baba = rempli_o(p, par, baba, size_nb);
+	ft_strdel(&baba);
 }
