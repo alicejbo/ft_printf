@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/16 14:48:24 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/17 15:54:49 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,5 +171,17 @@ void	flag_x(t_infos *p, t_params *par);
 */
 
 void	flag_x2(t_infos *p, t_params *par, char *baba, int size_nb);
+
+/*
+** flag_c.c
+*/
+
+void	flag_c(t_infos *p, t_params *par);
+
+/*
+** flag_s.c
+*/
+
+void	flag_s(t_infos *p, t_params *par);
 
 #endif

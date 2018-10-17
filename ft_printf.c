@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/16 19:35:00 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/17 17:40:03 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,5 @@ int		ft_printf(const char *format, ...)
 
 int		main(int ac, char **av)
 {
-	ft_printf(av[1], 11);
-//	while(1);
+	ft_printf(av[1], "qwertyuiop");
 }

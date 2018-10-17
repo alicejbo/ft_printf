@@ -6,7 +6,7 @@
 #    By: abossard <abossard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 23:02:52 by abossard          #+#    #+#              #
-#    Updated: 2018/10/16 19:27:51 by abossard         ###   ########.fr        #
+#    Updated: 2018/10/17 17:21:29 by abossard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,8 @@ SRC = ft_strlen.c\
 	  ft_isspace.c\
 	  ft_strtrim.c\
 	  ft_strjoinfree.c\
-	  ft_str_upper.c
+	  ft_str_upper.c\
+	  ft_val_wchar.c
 
 HEADERS = libft.h
 
