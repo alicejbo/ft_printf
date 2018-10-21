@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 23:41:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/17 15:52:35 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/21 23:35:35 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void	direction1(t_infos *p, t_params *par)
 		flag_c(p, par);
 	if (par->type == 's')
 		flag_s(p, par);
+	if (par->type == 'C')
+		big_c(p, par);
+	if (par->type == 'S')
+		big_s(p, par);
 	if (par->type == '\0')
 		par->str = ft_strdup("\0");
 	//functions process

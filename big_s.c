@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   big_c.c                                            :+:      :+:    :+:   */
+/*   big_s.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/17 17:22:59 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/21 23:08:29 by abossard         ###   ########.fr       */
+/*   Created: 2018/10/21 23:08:39 by abossard          #+#    #+#             */
+/*   Updated: 2018/10/21 23:38:04 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,41 @@ int		wstring(wchar_t wstr, char *str, int i, int size)
 	return (i);
 }
 
-void	big_c(t_infos *p, t_params *par)
+void	big_s(t_infos *p, t_params *par)
 {
-	wchar_t			baba;
-	int				i;
+	wchar_t		*baba;
+	int			i;
+	int			j;
+	int			size;
 
-	i = -1;
-	baba = (wchar_t)par->w_arg;
-	par->str = ft_memalloc(ft_val_wchar((wchar_t)par->w_arg) + 2);
+	j = 0;
+	baba = (wchar_t *)par->w_arg;
+	while (baba[j] != '\0')
+	{
+		size = size + ft_val_wchar(baba[j]);
+		j++;
+	}
+	j = 0;
+	par->str = ft_memalloc(size);
 	if (par->flags[1] == 1)
 	{
 		i = 0;
-		i = wstring(baba, par->str, i, 0);
-		while (++i <= par->width)
-			par->str[i - 1] = ' ';
+		while (baba[j] != '\0')
+		{
+			i = wstring(baba[j], par->str, i, 0);
+			j++;
+		}
+		while (++i < par->width)
+			par->str[i] = ' ';
 	}
 	else
 	{
-		while (++i < par->width - ft_val_wchar((wchar_t)par->w_arg))
+		while (++i < par->width - size)
 			par->str[i] = ' ';
-		i = wstring(baba, par->str, i, 0);
+		while (baba[j] != '\0')
+		{
+			i = wstring(baba[j], par->str, i, 0);
+			j++;
+		}
 	}
 }
