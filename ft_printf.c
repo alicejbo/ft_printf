@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/17 17:40:03 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/23 16:03:37 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,31 @@ int		ft_printf(const char *format, ...)
 	PAR->str = ft_strsub(format, J, (I - J));
 	p->size_buf = p->size_buf + ft_strlen(PAR->str);
 	PAR = p->para_beg;
-/*	while (PAR != NULL)
-	{
+	/*	while (PAR != NULL)
+		{
 		printf("~~~~~~~~~~~~~~~~~\n| the line is: %s |\n", PAR->str);
 		PAR = PAR->next;
-	} */
+		} */
 	display(p, p->para_beg);
 	delete_infos(&p);
 	return (0);
 }
 
+#include <locale.h>
+
 int		main(int ac, char **av)
 {
-	ft_printf(av[1], "qwertyuiop");
+	wchar_t		s[4];
+	s[0] = 0x53;
+	s[1] = 0x3abc;
+	s[2] = 0x81000;
+	s[3] = '\0';
+	char* l = setlocale(LC_ALL, ""); 
+	if (l == NULL) 
+		printf("Locale not set\n"); 
+	else
+		printf("Locale set to %s\n", l); 
+	ft_printf(av[1], s);
+	printf("\n\n%-16S\n\n", s);
+//	while(1);
 }
