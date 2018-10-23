@@ -6,11 +6,27 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 23:41:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/23 16:09:17 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/23 19:22:59 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	direction2(t_infos *p, t_params *par)
+{
+	int		*flag_n;
+
+	if (par->type == 'n')
+	{
+		flag_n = (int*)par->w_arg;
+		ft_putnbr(p->size_buf);
+		*flag_n = p->size_buf;
+		ft_putstr("a\n");
+		par->str = ft_strdup("\0");
+	}
+	if (par->type == '\0')
+		par->str = ft_strdup("\0");
+}
 
 void	direction1(t_infos *p, t_params *par)
 {
@@ -36,13 +52,6 @@ void	direction1(t_infos *p, t_params *par)
 		big_c(p, par);
 	if (par->type == 'S')
 		big_s(p, par, -1, 0);
-	if (par->type == '\0')
-		par->str = ft_strdup("\0");
-	//functions process
-	//     |
-	//     |
-	//    \ /
-	//     .
-
+	direction2(p, par);
 	p->size_buf = p->size_buf + ft_strlen(par->str);
 }

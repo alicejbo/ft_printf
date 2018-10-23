@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/23 16:14:26 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/23 19:23:03 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct			s_infos
 	int					l;
 	int					nbr;
 	int					pos_arg;
+	int					mb_cur;
 }						t_infos;
 
 /*

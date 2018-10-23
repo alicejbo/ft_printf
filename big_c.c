@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/17 17:22:59 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/23 16:14:23 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/23 18:17:07 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,22 @@ void	big_c(t_infos *p, t_params *par)
 	i = -1;
 	baba = (wchar_t)par->w_arg;
 	par->str = ft_memalloc(ft_val_wchar((wchar_t)par->w_arg) + 2);
-	if (par->flags[1] == 1)
-	{
-		i = 0;
-		i = wstring(baba, par->str, i, 0);
-		while (++i <= par->width)
-			par->str[i - 1] = ' ';
-	}
+	if (ft_val_wchar((wchar_t)par->w_arg) > MB_CUR_MAX)
+		p->mb_cur = -1;
 	else
 	{
-		while (++i < par->width - ft_val_wchar((wchar_t)par->w_arg))
-			par->str[i] = ' ';
-		i = wstring(baba, par->str, i, 0);
+		if (par->flags[1] == 1)
+		{
+			i = 0;
+			i = wstring(baba, par->str, i, 0);
+			while (++i <= par->width)
+				par->str[i - 1] = ' ';
+		}
+		else
+		{
+			while (++i < par->width - ft_val_wchar((wchar_t)par->w_arg))
+				par->str[i] = ' ';
+			i = wstring(baba, par->str, i, 0);
+		}
 	}
 }

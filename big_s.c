@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 23:08:39 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/23 16:10:15 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/23 18:15:24 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,17 @@ int		wstring_s(wchar_t wstr, char *str, int i, int size)
 	return (i);
 }
 
+void	flag(t_infos *p, t_params *par, int j, int size, wchar_t *baba)
+{
+	int		i;
+
+	i = 0;
+	while (baba[++j] != '\0')
+		i = wstring_s(baba[j], par->str, i, 0);
+	while (++i <= par->width)
+		par->str[i - 1] = ' ';
+}
+
 void	big_s(t_infos *p, t_params *par, int j, int size)
 {
 	wchar_t		*baba;
@@ -47,17 +58,15 @@ void	big_s(t_infos *p, t_params *par, int j, int size)
 
 	baba = (wchar_t *)par->w_arg;
 	while (baba[++j] != '\0')
+	{
+		if (ft_val_wchar(baba[j]) > MB_CUR_MAX)
+			p->mb_cur = -1;
 		size = size + ft_val_wchar(baba[j]);
+	}
 	j = -1;
 	par->str = ft_memalloc(size + par->width);
 	if (par->flags[1] == 1)
-	{
-		i = 0;
-		while (baba[++j] != '\0')
-			i = wstring_s(baba[j], par->str, i, 0);
-		while (++i <= par->width)
-			par->str[i - 1] = ' ';
-	}
+		flag(p, par, j, size, baba);
 	else
 	{
 		i = -1;
