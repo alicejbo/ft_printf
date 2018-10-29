@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/23 19:10:17 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/30 00:26:16 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		count_args(const char *format, t_infos *p)
 					format[I] != 'c' && format[I] != 'C' &&
 					format[I] != '%' && format[I] != '\0')
 				I++;
-			if (format[I] != '%' && format[I] != 'n' && format[I] != '\0')
+			if (format[I] != '%' && format[I] != '\0')
 				NBR++;
 		}
 		I++;
@@ -105,8 +105,8 @@ int		main(int ac, char **av)
 //		printf("Locale not set\n"); 
 //	else
 //		printf("Locale set to %s\n", l); 
-	ft_printf(av[1], &s);
-//	printf("\n\n%n\n\n", &s);
+	ft_printf(av[1], '\0');
+	printf("\n\n%-10c\n\n", '\0');
 	ft_putnbr(s);
 //	while(1);
 }

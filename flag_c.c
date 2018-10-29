@@ -6,19 +6,34 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/17 16:00:12 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/30 00:26:13 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+void	back_zero(t_infos *p, t_params *par, unsigned char baba)
+{
+	int i;
+
+	i = -1;
+	baba = '\0';
+	if (par->flags[1] == 1)
+		p->size_buf = p->size_buf + par->width;
+	else
+		p->size_buf = p->size_buf + 1;
+}
+
 void	flag_c(t_infos *p, t_params *par)
 {
 	unsigned char	baba;
-	int		i;
+	int				i;
 
 	i = -1;
-	baba = (unsigned char)par->w_arg;
+	if ((unsigned char)par->w_arg == '\0')
+		back_zero(p, par, baba);
+	else
+		baba = (unsigned char)par->w_arg;
 	par->str = ft_memalloc(par->width + 2);
 	if (par->flags[1] == 1)
 	{

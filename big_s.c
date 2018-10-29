@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 23:08:39 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/23 18:15:24 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/29 20:33:09 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,51 @@ int		wstring_s(wchar_t wstr, char *str, int i, int size)
 	return (i);
 }
 
+void	flag2(t_infos *p, t_params *par, char *baba2)
+{
+	int i;
+
+	par->str = ft_memalloc(par->width);
+	if (par->flags[1] == 1)
+	{
+		i = par->size_str;
+		par->str = ft_strcpy(par->str, baba2);
+		while (i < par->width)
+		{
+			par->str[i] = ' ';
+			i++;
+		}
+	}
+	else
+	{
+		i = 0;
+		while (i < par->width - par->size_str)
+		{
+			par->str[i] = ' ';
+			i++;
+		}
+		par->str = ft_strcat(par->str, baba2);
+	}
+}
+
+void	nulle(t_infos *p, t_params *par)
+{
+	char	*baba2;
+	int i;
+
+	baba2 = ft_strdup("(null)\0");
+	par->size_str = ft_strlen(baba2);
+	ft_putnbr(par->size_str);
+	if (par->size_str < par->width)
+		flag2(p, par, baba2);
+	else
+	{
+		par->str = ft_memalloc(par->size_str);
+		par->str = ft_strcpy(par->str, baba2);
+	}
+	ft_strdel(&baba2);
+}
+
 void	flag(t_infos *p, t_params *par, int j, int size, wchar_t *baba)
 {
 	int		i;
@@ -56,6 +101,8 @@ void	big_s(t_infos *p, t_params *par, int j, int size)
 	wchar_t		*baba;
 	int			i;
 
+	if ((char *)par->w_arg == NULL)
+			return (nulle(p, par));
 	baba = (wchar_t *)par->w_arg;
 	while (baba[++j] != '\0')
 	{

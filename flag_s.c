@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/17 16:33:07 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/28 20:47:16 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,19 @@ void	flag_s(t_infos *p, t_params *par)
 {
 	char		*baba;
 
-	baba = (char *)ft_memalloc(ft_strlen((char *)par->w_arg) + 1);
-	baba = ft_strcpy(baba, (char *)par->w_arg);
+	if ((char *)par->w_arg == NULL)
+		baba = ft_strdup("(null)\0");
+	else
+	{
+		baba = (char *)ft_memalloc(ft_strlen((char *)par->w_arg) + 1);
+		baba = ft_strcpy(baba, (char *)par->w_arg);
+	}
 	par->size_str = ft_strlen(baba);
+	if (par->prec < par->size_str)
+	{
+		par->size_str = par->prec;
+		baba[par->prec] = '\0';
+	}
 	if (par->size_str < par->width)
 		flag_s2(p, par, baba);
 	else
