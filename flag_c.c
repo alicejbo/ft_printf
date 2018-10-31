@@ -6,18 +6,14 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/30 00:26:13 by abossard         ###   ########.fr       */
+/*   Updated: 2018/10/31 18:06:39 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	back_zero(t_infos *p, t_params *par, unsigned char baba)
+void	back_zero(t_infos *p, t_params *par)
 {
-	int i;
-
-	i = -1;
-	baba = '\0';
 	if (par->flags[1] == 1)
 		p->size_buf = p->size_buf + par->width;
 	else
@@ -31,9 +27,8 @@ void	flag_c(t_infos *p, t_params *par)
 
 	i = -1;
 	if ((unsigned char)par->w_arg == '\0')
-		back_zero(p, par, baba);
-	else
-		baba = (unsigned char)par->w_arg;
+		back_zero(p, par);
+	baba = (unsigned char)par->w_arg;
 	par->str = ft_memalloc(par->width + 2);
 	if (par->flags[1] == 1)
 	{
@@ -48,4 +43,5 @@ void	flag_c(t_infos *p, t_params *par)
 		par->str[i] = baba;
 		par->str[i + 1] = '\0';
 	}
+	par->size_str = (par->width == -1) ? 1 : par->width;
 }
