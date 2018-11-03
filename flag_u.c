@@ -6,13 +6,13 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/16 15:29:37 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/03 19:23:21 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*prec_u(t_infos *p, t_params *par, char *baba)
+char	*prec_u(t_params *par, char *baba)
 {
 	int diff;
 	int i;
@@ -30,32 +30,32 @@ char	*prec_u(t_infos *p, t_params *par, char *baba)
 	return (baba2);
 }
 
-char	*rempli_u(t_infos *p, t_params *par, char *baba, int size_nb)
+char	*rempli_u(t_params *par, char *baba, int size_nb)
 {
 	int		i;
 	char	*nb_preci;
 
 	i = 0;
-	if (par->prec > ft_strlen(baba))
+	if ((size_t)par->prec > ft_strlen(baba))
 	{
 		nb_preci = ft_strdup(baba);
 		ft_strdel(&baba);
-		baba = prec_u(p, par, nb_preci);
+		baba = prec_u(par, nb_preci);
 		ft_strdel(&nb_preci);
 	}
 	if (par->size_str > size_nb)
-		flag_u2(p, par, baba, size_nb);
+		flag_u2(par, baba, size_nb);
 	else
 		ft_strcat(par->str, baba);
 	return (baba);
 }
 
-char	*length_u(t_infos *p, t_params *par)
+char	*length_u(t_params *par)
 {
 	char	*baba;
 
 	if (par->length == 0)
-		baba = ft_itoa_base((unsigned int)par->w_arg, 10);
+		baba = ft_itoa_base_ll((unsigned int)par->w_arg, 10);
 	if (par->length == 1)
 		baba = ft_itoa_base_ll((unsigned short int)par->w_arg, 10);
 	if (par->length == 2)
@@ -63,7 +63,7 @@ char	*length_u(t_infos *p, t_params *par)
 	if (par->length == 3)
 		baba = ft_itoa_base_ll((unsigned long int)par->w_arg, 10);
 	if (par->length == 4)
-		baba = ft_itoa_base((unsigned long long int)par->w_arg, 10);
+		baba = ft_itoa_base_ll((unsigned long long int)par->w_arg, 10);
 	if (par->length == 5)
 		baba = ft_itoa_base_ll((uintmax_t)par->w_arg, 10);
 	if (par->length == 6)
@@ -71,26 +71,25 @@ char	*length_u(t_infos *p, t_params *par)
 	return(baba);
 }
 
-void	flag_u(t_infos *p, t_params *par)
+void	flag_u(t_params *par)
 {
-	int		i;
 	char	*baba;
 	int		size_nb;
 
-	baba = length_u(p, par);
+	baba = length_u(par);
 	par->size_str = ft_strlen(baba);
 	size_nb = ft_strlen(baba);
-	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
-			par->size_str, baba);
-	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
+//	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
+//			par->size_str, baba);
+//	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
 	if (par->size_str < par->width)
 		par->size_str = par->width;
 	if (size_nb < par->prec)
 		size_nb = par->prec;
 	if (size_nb > par->size_str)
 		par->size_str = size_nb;
-	printf("size 2 = %d\n\n", par->size_str);
+//	printf("size 2 = %d\n\n", par->size_str);
 	par->str = ft_memalloc(par->size_str);
-	baba = rempli_u(p, par, baba, size_nb);
+	baba = rempli_u(par, baba, size_nb);
 	ft_strdel(&baba);
 }

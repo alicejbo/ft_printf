@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 00:02:44 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/31 18:06:41 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/03 19:02:46 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	display(t_infos *p, t_params *par)
 			ft_strcat(p->buf, par->str);
 		par = par->next;
 	}
-	ft_putnbr(p->size_buf);
-	write(1, "\n", 1);
+	//ft_putnbr(p->size_buf);
+//	write(1, "\n", 1);
 	write(1, p->buf, p->size_buf);
-	write(1, "\n", 1);
+//	write(1, "\n", 1);
 }

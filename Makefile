@@ -6,14 +6,14 @@
 #    By: abossard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/31 18:13:04 by abossard          #+#    #+#              #
-#    Updated: 2018/10/31 18:17:25 by abossard         ###   ########.fr        #
+#    Updated: 2018/11/03 19:00:33 by abossard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = big.c\
-	  big.s\
+SRC = big_c.c\
+	  big_s.c\
 	  boucle_ppale.c\
 	  direction.c\
 	  display.c\
@@ -30,7 +30,6 @@ SRC = big.c\
 	  ft_printf.c\
 	  list_args.c\
 	  list_params.c\
-	  mb_cur.c\
 	  parse_args.c\
 	  parse_args_2.c\
 	  struct_infos.c\
@@ -39,11 +38,11 @@ SRC = big.c\
 SRC_LIB = libft/ft_atoi.c\
 		  libft/ft_itoa.c\
 		  libft/ft_itoa_base.c\
-		  libft/ft_itoa_base_neg.c\
-		  libft/ft_len_wchar_to_char.c\
+		  libft/ft_itoa_base_ll.c\
 		  libft/ft_memalloc.c\
 		  libft/ft_memmove.c\
 		  libft/ft_putstr.c\
+		  libft/ft_putnbr.c\
 		  libft/ft_strcat.c\
 		  libft/ft_strcmp.c\
 		  libft/ft_strcpy.c\
@@ -53,17 +52,18 @@ SRC_LIB = libft/ft_atoi.c\
 		  libft/ft_strlen.c\
 		  libft/ft_strstr.c\
 		  libft/ft_strsub.c\
-		  libft/ft_strupper.c\
+		  libft/ft_str_upper.c\
 		  libft/ft_val_wchar.c\
 		  libft/ft_memcpy.c\
 		  libft/ft_toupper.c\
 		  libft/ft_bzero.c\
+		  libft/ft_putchar.c\
+		  libft/ft_memdel.c
 
 OBJ_LIB = ft_atoi.o\
 		  ft_itoa.o\
 		  ft_itoa_base.o\
-		  ft_itoa_base_neg.o\
-		  ft_len_wchar_to_char.o\
+		  ft_itoa_base_ll.o\
 		  ft_memalloc.o\
 		  ft_memmove.o\
 		  ft_putstr.o\
@@ -76,11 +76,14 @@ OBJ_LIB = ft_atoi.o\
 		  ft_strlen.o\
 		  ft_strstr.o\
 		  ft_strsub.o\
-		  ft_strupper.o\
+		  ft_str_upper.o\
 		  ft_val_wchar.o\
 		  ft_memcpy.o\
 		  ft_toupper.o\
 		  ft_bzero.o\
+		  ft_putnbr.o\
+		  ft_putchar.o\
+		  ft_memdel.o
 
 OBJ = $(SRC:.c=.o)
 
@@ -92,7 +95,7 @@ $(OBJ_LIB): $(SRC_LIB)
 $(OBJ): $(SRC)
 	@gcc -Wall -Wextra -Werror -c -O3 $(SRC)
 
-$(NAME): $(OBJ) $(SRC) $(OBJ_LIB) includes/ft_printf.h includes/ft_errno.h
+$(NAME): $(OBJ) $(SRC) $(OBJ_LIB) ft_printf.h
 	@ar rc $(NAME) $(OBJ) $(OBJ_LIB)
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/31 17:31:43 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/03 19:33:32 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void		delete_params(t_params **begin_list);
 ** struct_infos.c
 */
 
-void		delete_infos(t_infos **begin_list);
+int			delete_infos(t_infos **begin_list);
 
 /*
 ** parse_args.c
@@ -129,49 +129,49 @@ void	which_arg(t_infos *p, t_params *par);
 ** flag_i.c
 */
 
-void	flag_i(t_infos *p, t_params *par);
+void	flag_i(t_params *par);
 
 /*
 ** flag_i2.c
 */
 
-void	flag_i2(t_infos *p, t_params *par, char *baba, int size_nb);
+void	flag_i2(t_params *par, char *baba, int size_nb);
 
 /*
 ** flag_o.c
 */
 
-void	flag_o(t_infos *p, t_params *par);
+void	flag_o(t_params *par);
 
 /*
 ** flag_o2.c
 */
 
-void	flag_o2(t_infos *p, t_params *par, char *baba, int size_nb);
+void	flag_o2(t_params *par, char *baba, int size_nb);
 
 /*
 ** flag_u.c
 */
 
-void	flag_u(t_infos *p, t_params *par);
+void	flag_u(t_params *par);
 
 /*
 ** flag_u2.c
 */
 
-void	flag_u2(t_infos *p, t_params *par, char *baba, int size_nb);
+void	flag_u2(t_params *par, char *baba, int size_nb);
 
 /*
 ** flag_x.c
 */
 
-void	flag_x(t_infos *p, t_params *par);
+void	flag_x(t_params *par);
 
 /*
 ** flag_x2.c
 */
 
-void	flag_x2(t_infos *p, t_params *par, char *baba, int size_nb);
+void	flag_x2(t_params *par, char *baba, int size_nb);
 
 /*
 ** flag_c.c
@@ -183,7 +183,7 @@ void	flag_c(t_infos *p, t_params *par);
 ** flag_s.c
 */
 
-void	flag_s(t_infos *p, t_params *par);
+void	flag_s(t_params *par);
 
 /*
 ** big_c.c

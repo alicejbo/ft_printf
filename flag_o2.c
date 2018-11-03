@@ -6,13 +6,13 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 19:38:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/17 15:52:14 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/03 18:31:34 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_zeroes_o(t_infos *p, t_params *par, char *baba, int size_nb)
+void	ft_zeroes_o(t_params *par, char *baba, int size_nb)
 {
 	int i;
 
@@ -27,7 +27,7 @@ void	ft_zeroes_o(t_infos *p, t_params *par, char *baba, int size_nb)
 	ft_strcat(par->str, baba);
 }
 
-void	ft_justify_o(t_infos *p, t_params *par, char *baba, int size_nb)
+void	ft_justify_o(t_params *par, char *baba, int size_nb)
 {
 	int i;
 
@@ -39,24 +39,24 @@ void	ft_justify_o(t_infos *p, t_params *par, char *baba, int size_nb)
 	else
 		i = size_nb;
 	ft_strcat(par->str, baba);
-	printf("baba o = %s\n", par->str);
+//	printf("baba o = %s\n", par->str);
 	while (i < par->size_str)
 	{
 		par->str[i] = ' ';
 		i++;
 	}
-	printf("baba o = %s\n", par->str);
+//	printf("baba o = %s\n", par->str);
 }
 
-void	flag_o2(t_infos *p, t_params *par, char *baba, int size_nb)
+void	flag_o2(t_params *par, char *baba, int size_nb)
 {
 	int i;
 
 	i = 0;
 	if (par->flags[1] == 1)
-		ft_justify_o(p, par, baba, size_nb);
+		ft_justify_o(par, baba, size_nb);
 	else if (par->flags[3] == 1)
-		ft_zeroes_o(p, par, baba, size_nb);
+		ft_zeroes_o(par, baba, size_nb);
 	else
 	{
 		while (i < (par->size_str - size_nb))

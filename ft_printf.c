@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/31 17:22:39 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/03 20:22:18 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		count_args(const char *format, t_infos *p)
 		}
 		I++;
 	}
-	printf("-----------------\n| nbr d'arg = %d |\n-----------------\n", NBR);
+//	printf("-----------------\n| nbr d'arg = %d |\n-----------------\n", NBR);
 	return (NBR);
 }
 
@@ -48,7 +48,7 @@ void	fill_list(const char *format, t_infos *p, va_list ap)
 	{
 		ptr = init_args(&p->args_beg);
 		ptr->arg = va_arg(ap, void*);
-		printf("ptr->arg = %lld\n", (long long int)ptr->arg);
+//		printf("ptr->arg = %lld\n", (long long int)ptr->arg);
 		I++;
 	}
 }
@@ -82,19 +82,18 @@ int		ft_printf(const char *format, ...)
 	if (p->mb_cur == -1)
 	{
 		delete_infos(&p);
-		return (1);
+		return (-1);
 	}
 	display(p, p->para_beg);
-	delete_infos(&p);
-	return (0);
+	return (delete_infos(&p));
 }
 
-#include <locale.h>
+//#include <locale.h>
 
-int		main(int ac, char **av)
-{
-	int		s;
-	s = 0;
+//int		main(int ac, char **av)
+//{
+//	int		s;
+//	s = 0;
 //	wchar_t		s[4];
 //	s[0] = 0x53;
 //	s[1] = 0x3abc;
@@ -105,8 +104,8 @@ int		main(int ac, char **av)
 //		printf("Locale not set\n"); 
 //	else
 //		printf("Locale set to %s\n", l); 
-	ft_printf(av[1], '\0');
-	printf("\n\n%-10c\n\n", '\0');
-	ft_putnbr(s);
+//	ft_printf(av[1], '\0');
+//	printf("\n\n%-10c\n\n", '\0');
+//	ft_putnbr(s);
 //	while(1);
-}
+//}

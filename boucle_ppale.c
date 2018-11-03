@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 04:53:33 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/23 17:39:00 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/03 17:48:27 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ void	boucle_ppale(const char *format, t_infos *p)
 	printf("+++++++++++++++++\n| width = %d    |\n+++++++++++++++++\n", PAR->width);
 	printf("#################\n| precision = %d|\n#################\n", PAR->prec);
 	printf("*****************\n| length = %d    |\n*****************\n", PAR->length);*/
-	printf("xxxxxxxxxxxxxxxxx\n| type = %c      |\nxxxxxxxxxxxxxxxxx\n", PAR->type);
+//	printf("xxxxxxxxxxxxxxxxx\n| type = %c      |\nxxxxxxxxxxxxxxxxx\n", PAR->type);
 	PAR = init_params(&p->para_beg);
 }

@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 17:45:17 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/26 19:06:27 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/03 20:07:22 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ long long int	ft_pow(int nb, int pow)
 		return (nb * ft_pow(nb, pow - 1));
 }
 
-char			*ft_itoa_base(long long value, int base)
+char			*ft_itoa_base(long long int value, int base)
 {
 	int		i;
 	char	*nbr;
@@ -28,16 +28,17 @@ char			*ft_itoa_base(long long value, int base)
 
 	i = 1;
 	neg = 0;
+	if (value < -9223372036854775807)
+		return (ft_strdup("-9223372036854775808"));
 	if (value < 0)
 	{
 		if (base == 10)
 			neg = 1;
 		value = -value;
 	}
-	while (ft_pow(base, i) - 1 < value)
+	while (ft_pow(base, i) - 1 < value / base)
 		i++;
-	nbr = (char*)ft_memalloc(sizeof(nbr) * i);
-	nbr[i + neg] = '\0';
+	nbr = (char*)ft_memalloc(sizeof(nbr) * ++i);
 	while (i-- > 0)
 	{
 		nbr[i + neg] = (value % base) + (value % base > 9 ? 'a' - 10 : '0');

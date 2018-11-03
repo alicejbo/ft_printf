@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 23:08:39 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/31 17:36:24 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/03 19:03:08 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		wstring_s(wchar_t wstr, char *str, int i, int size)
 	return (i);
 }
 
-void	flag2(t_infos *p, t_params *par, char *baba2)
+void	flag2(t_params *par, char *baba2)
 {
 	int i;
 
@@ -67,16 +67,15 @@ void	flag2(t_infos *p, t_params *par, char *baba2)
 	}
 }
 
-void	nulle(t_infos *p, t_params *par)
+void	nulle(t_params *par)
 {
 	char	*baba2;
-	int i;
 
 	baba2 = ft_strdup("(null)\0");
 	par->size_str = ft_strlen(baba2);
-	ft_putnbr(par->size_str);
+	//ft_putnbr(par->size_str);
 	if (par->size_str < par->width)
-		flag2(p, par, baba2);
+		flag2(par, baba2);
 	else
 	{
 		par->str = ft_memalloc(par->size_str);
@@ -85,7 +84,7 @@ void	nulle(t_infos *p, t_params *par)
 	ft_strdel(&baba2);
 }
 
-void	flag(t_infos *p, t_params *par, int j, int size, wchar_t *baba)
+void	flag(t_params *par, int j, wchar_t *baba)
 {
 	int		i;
 
@@ -102,7 +101,7 @@ void	big_s(t_infos *p, t_params *par, int j, int size)
 	int			i;
 
 	if ((char *)par->w_arg == NULL)
-			return (nulle(p, par));
+			return (nulle(par));
 	baba = (wchar_t *)par->w_arg;
 	while (baba[++j] != '\0')
 	{
@@ -113,7 +112,7 @@ void	big_s(t_infos *p, t_params *par, int j, int size)
 	j = -1;
 	par->str = ft_memalloc(size + par->width);
 	if (par->flags[1] == 1)
-		flag(p, par, j, size, baba);
+		flag(par, j, baba);
 	else
 	{
 		i = -1;

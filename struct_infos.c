@@ -6,20 +6,23 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 05:01:13 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/02 15:19:01 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/03 20:22:21 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		delete_infos(t_infos **begin_list)
+int		delete_infos(t_infos **begin_list)
 {
 	t_infos		*p;
+	int			res;
 
 	p = *begin_list;
+	res = p->size_buf;
 	ft_strdel(&p->buf);
 	delete_args(&p->args_beg);
 	delete_params(&p->para_beg);
 	free(*begin_list);
 	*begin_list = NULL;
+	return (res);
 }

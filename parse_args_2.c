@@ -6,13 +6,13 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 15:09:59 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/23 19:08:28 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/03 17:57:49 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	parse_args7(char *str, t_infos *p, t_params *par)
+void	parse_args7(t_infos *p, t_params *par)
 {
 	p->pos_arg = p->pos_arg + 1;
 	which_arg(p, par);
@@ -39,7 +39,7 @@ void	parse_args6(char *str, t_infos *p, t_params *par)
 	 if (str[K] >= 68 && str[K] <= 87)
 		 par->length = 3;
 	priorities(par);
-	parse_args7(str, p, par);
+	parse_args7(p, par);
 }
 
 void	parse_args5(char *str, t_infos *p, t_params *par)
