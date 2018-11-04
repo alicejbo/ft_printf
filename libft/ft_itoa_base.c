@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 17:45:17 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/03 20:07:22 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/04 21:12:55 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char			*ft_itoa_base(long long int value, int base)
 	char	*nbr;
 	int		neg;
 
-	i = 1;
+	i = (value >= 10) ? 1 : 0;
 	neg = 0;
 	if (value < -9223372036854775807)
 		return (ft_strdup("-9223372036854775808"));

@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 01:26:31 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/03 17:52:41 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/04 23:47:30 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	priorities(t_params *par)
 				|| par->type == 'o' || par->type == 'O' || par->type == 'u'
 				|| par->type == 'U' || par->type == 'x' || par->type == 'X')
 				&& par->prec != -1)
-			par->flags[3]= 0;
+		par->flags[3]= 0;
 	}
 	if (par->flags[0] == 1)
 		if (par->flags[4] == 1)

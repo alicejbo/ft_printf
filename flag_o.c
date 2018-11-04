@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/03 19:23:33 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/04 20:16:33 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,21 @@ char	*prec_o(t_params *par, char *baba)
 	int i;
 	char *baba2;
 
-	diff = (par->prec - ft_strlen(baba));
-	baba2 = ft_memalloc(par->size_str);
 	i = 0;
-	while (i < diff)
+	if (par->prec == 0 && (int)par->w_arg == 0)
+		baba2 = ft_strdup("\0");
+	else
 	{
-		baba2[i] = '0';
-		i++;
+		diff = (par->prec - ft_strlen(baba));
+		baba2 = ft_memalloc(par->size_str);
+		while (i < diff)
+		{
+			baba2[i] = '0';
+			i++;
+		}
+		ft_strcpy(baba2 + i, baba);
 	}
-	ft_strcpy(baba2 + i, baba);
-	return(baba2);
+		return(baba2);
 }
 
 char	*rempli_o(t_params *par, char *baba, int size_nb)
@@ -36,7 +41,8 @@ char	*rempli_o(t_params *par, char *baba, int size_nb)
 	char	*nb_preci;
 
 	i = 0;
-	if ((size_t)par->prec > ft_strlen(baba))
+	if ((size_t)par->prec > ft_strlen(baba) || (par->prec == 0
+			&& (int)par->w_arg == 0))
 	{
 		nb_preci = ft_strdup(baba);
 		ft_strdel(&baba);

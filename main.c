@@ -2,6 +2,7 @@
 
 int main(int argc, const char *argv[])
 {
-	ft_printf("%#.x %#.0x", 0, 0);
+	ft_printf("(%03.2d)", -1);
+	printf("\n%03.2d", -1);
 	return 0;
 }

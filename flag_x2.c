@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 19:38:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/04 01:20:45 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/04 17:33:25 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	flag_x2(t_params *par, char *baba, int size_nb)
 		ft_zeroes_x(par, baba, size_nb);
 	else
 	{
+		if ((int)par->w_arg == 0)
+			size_nb--;
 		while (i < (par->size_str - size_nb))
 		{
 			par->str[i] = ' ';
