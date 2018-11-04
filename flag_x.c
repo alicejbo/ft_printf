@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/03 19:23:00 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/04 01:15:16 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,20 @@ char	*prec_x(t_params *par, char *baba)
 	int i;
 	char *baba2;
 
-	diff = (par->prec - ft_strlen(baba));
-	baba2 = ft_memalloc(par->size_str);
 	i = 0;
-	while (i < diff)
+	if (par->prec == 0 && (int)par->w_arg == 0)
+		baba2 = ft_strdup("\0");
+	else
 	{
-		baba2[i] = '0';
-		i++;
-	}
+		diff = (par->prec - ft_strlen(baba));
+		baba2 = ft_memalloc(par->size_str);
+		while (i < diff)
+		{
+			baba2[i] = '0';
+			i++;
+		}
 	ft_strcpy(baba2 + i, baba);
+	}
 	return(baba2);
 }
 
@@ -34,7 +39,8 @@ char	*rempli_x(t_params *par, char *baba, int size_nb)
 {
 	char	*nb_preci;
 
-	if ((size_t)par->prec > ft_strlen(baba))
+	if ((size_t)par->prec > ft_strlen(baba) || (par->prec == 0 
+				&& (int)par->w_arg == 0))
 	{
 		nb_preci = ft_strdup(baba);
 		ft_strdel(&baba);
@@ -43,7 +49,7 @@ char	*rempli_x(t_params *par, char *baba, int size_nb)
 	}
 	if (par->size_str > size_nb)
 		flag_x2(par, baba, size_nb);
-	else if (par->flags[2] == 1)
+	else if (par->flags[2] == 1 && (int)par->w_arg != 0)
 	{
 		par->str[0] = '0';
 		par->str[1] = 'x';
@@ -86,7 +92,7 @@ void	flag_x(t_params *par)
 //	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
 //			par->size_str, baba);
 //	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
-	if (par->flags[2] == 1)
+	if (par->flags[2] == 1 && (int)par->w_arg != 0)
 		size_nb = size_nb + 2;
 	if (par->size_str < par->width)
 		par->size_str = par->width;

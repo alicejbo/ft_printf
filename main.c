@@ -2,9 +2,6 @@
 
 int main(int argc, const char *argv[])
 {
-	int		a;
-
-	a = ft_printf("%lld", 9223372036854775800);
-	printf("a=%d\n", a);
+	ft_printf("%#.x %#.0x", 0, 0);
 	return 0;
 }

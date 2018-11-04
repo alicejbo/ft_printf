@@ -6,7 +6,7 @@
 #    By: abossard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/31 18:13:04 by abossard          #+#    #+#              #
-#    Updated: 2018/11/03 19:00:33 by abossard         ###   ########.fr        #
+#    Updated: 2018/11/03 23:17:05 by abossard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,10 +90,10 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(OBJ_LIB): $(SRC_LIB)
-	@gcc -Wall -Wextra -Werror -c -O3 $(SRC_LIB)
+	@gcc -Wall -Wextra -c $(SRC_LIB)
 
 $(OBJ): $(SRC)
-	@gcc -Wall -Wextra -Werror -c -O3 $(SRC)
+	@gcc -Wall -Wextra -c $(SRC)
 
 $(NAME): $(OBJ) $(SRC) $(OBJ_LIB) ft_printf.h
 	@ar rc $(NAME) $(OBJ) $(OBJ_LIB)

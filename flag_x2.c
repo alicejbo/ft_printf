@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 19:38:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/03 18:17:26 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/04 01:20:45 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,26 @@ void	ft_zeroes_x(t_params *par, char *baba, int size_nb)
 	int i;
 
 	i = 0;
+	if (par->flags[2] == 1 && (int)par->w_arg != 0)
+	{
+		par->str[i] = '0';
+		par->str[++i] = 'x';
+		size_nb = size_nb - 2;
+		i++;
+	}
 	while (i < (par->size_str - size_nb))
 	{
 		par->str[i] = '0';
 		i++;
 	}
-	if (par->flags[2] == 1)
-	{
-		par->str[i] = '0';
-		i++;
-		par->str[i] = 'x';
-	}
-	ft_strcat(par->str, baba);
+		ft_strcat(par->str, baba);
 }
 
 void	ft_justify_x(t_params *par, char *baba, int size_nb)
 {
 	int i;
 
-	if (par->flags[2] == 1)
+	if (par->flags[2] == 1 && (int)par->w_arg != 0)
 	{
 		par->str[0] = '0';
 		par->str[1] = 'x';
@@ -65,10 +66,10 @@ void	flag_x2(t_params *par, char *baba, int size_nb)
 			par->str[i] = ' ';
 			i++;
 		}
-		if (par->flags[2] == 1)
+		if (par->flags[2] == 1 && (int)par->w_arg != 0)
 		{
-			par->str[i - 2] = '0';
-			par->str[i - 1] = 'x';
+			par->str[i++] = '0';
+			par->str[i++] = 'x';
 		}
 		ft_strcat(par->str, baba);
 	}
