@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 19:38:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 06:07:29 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 06:33:43 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_plus_sign(t_params *par, char *baba, int size_nb)
 	{
 //		printf("str %d\n", par->size_str);
 //		printf("i %d\n", i);
-		if (baba[0] >= '0' && baba[0] <= '9')
+		if ((int)par->w_arg >= 0)
 			par->str[i] = (par->flags[0] == 1) ? '+' : ' ';
 	}
 	ft_strcat(par->str, baba);

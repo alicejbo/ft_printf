@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 01:45:55 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 07:27:14 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*rempli_o(t_params *par, char *baba, int size_nb)
 	}
 	else
 		ft_strcat(par->str, baba);
-	return (baba);
+		return (baba);
 }
 
 char	*length_o(t_params *par)
@@ -95,7 +95,8 @@ void	flag_o(t_params *par)
 //	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
 //			par->size_str, baba);
 //	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
-	if (par->flags[2] == 1)
+	if (par->flags[2] == 1 && ((int)par->w_arg != 0 || (par->prec == 0 
+					&& (int)par->w_arg == 0)))
 		size_nb++;
 	if (par->size_str < par->width)
 		par->size_str = par->width;

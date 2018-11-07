@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 19:38:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/03 18:20:33 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 06:41:16 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_justify_u(t_params *par, char *baba, int size_nb)
 		par->str[i] = ' ';
 		i++;
 	}
+	par->str[i] = '\0';
 }
 
 void	flag_u2(t_params *par, char *baba, int size_nb)

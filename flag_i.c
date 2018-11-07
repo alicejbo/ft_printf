@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 01:06:38 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 06:39:23 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	nb_seul(t_params *par, char *baba)
 {
 	if(par->flags[0] == 1 || par->flags[4] == 1)
 	{
-		if (baba[0] >= '0' && baba[0] <= '9')
+		if ((int)par->w_arg >= 0)
 			par->str[0] = (par->flags[0] == 1) ? '+' : ' ';
 	}
 	ft_strcat(par->str, baba);

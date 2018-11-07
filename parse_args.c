@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 01:26:31 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 05:08:31 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 06:23:39 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	parse_args1(char *str, t_infos *p, t_params *par)
 			|| str[K] == ' ')
 	{
 		while (str[K] == '+' || str[K] == '-' || str[K] == '#'
-			|| (str[K] =='0' && par->flags[3] != 1) || str[K] == ' ')
+			|| str[K] =='0' || str[K] == ' ')
 		{
 			if (str[K] == '+')
 				par->flags[0] = 1;

@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 19:38:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 03:29:31 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 08:48:06 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	flag_x2(t_params *par, char *baba, int size_nb)
 	int i;
 
 	i = 0;
+	size_nb = (par->flags[2] == 1 && ((par->prec != -1 && par->type != 'p') 
+				&& (int)par->w_arg == 0)) ? size_nb + 2 : size_nb;
 	if (par->flags[1] == 1)
 		ft_justify_x(par, baba, size_nb);
 	else if (par->flags[3] == 1)
@@ -64,7 +66,9 @@ void	flag_x2(t_params *par, char *baba, int size_nb)
 	{
 		if ((int)par->w_arg == 0 && par->type != 'p')
 			size_nb--;
-//		printf("size %d\n nb %d\n", par->size_str, size_nb);
+		if ((int)par->w_arg == 0 && par->flags[2] == 1)
+			size_nb = 0;
+		printf("size %d\n nb %d\n", par->size_str, size_nb);
 		while (i < (par->size_str - size_nb))
 		{
 			par->str[i] = ' ';
