@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 23:08:39 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/03 19:03:08 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 05:45:36 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,17 +100,20 @@ void	big_s(t_infos *p, t_params *par, int j, int size)
 	wchar_t		*baba;
 	int			i;
 
-	if ((char *)par->w_arg == NULL)
+	if (par->w_arg == NULL)
 			return (nulle(par));
-	baba = (wchar_t *)par->w_arg;
+	baba = par->w_arg;
 	while (baba[++j] != '\0')
 	{
 		if (ft_val_wchar(baba[j]) > MB_CUR_MAX)
+		{
 			p->mb_cur = -1;
+			return ;
+		}
 		size = size + ft_val_wchar(baba[j]);
 	}
 	j = -1;
-	par->str = ft_memalloc(size + par->width);
+	par->str = (char*)ft_memalloc(size + par->width + 100);
 	if (par->flags[1] == 1)
 		flag(par, j, baba);
 	else

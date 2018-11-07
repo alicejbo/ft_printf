@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 15:09:59 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/03 17:57:49 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 05:21:29 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	parse_args7(t_infos *p, t_params *par)
 {
 	p->pos_arg = p->pos_arg + 1;
+	if (par->type == 'a')
+		p->pos_arg = p->pos_arg - 1;
 	which_arg(p, par);
 //	printf("@@@@@@@@@@@@@@@@@\n| which arg %lld   |\n", (long long int)par->w_arg);
 //	printf("| pos arg %d     |\n@@@@@@@@@@@@@@@@@\n", p->pos_arg);
@@ -31,13 +33,15 @@ void	parse_args6(char *str, t_infos *p, t_params *par)
 	 if (str[K] == 'n')
 		 par->type = 'n';
 	 if (str[K] == 'D')
-		 par->type = 'd';
+		 par->type = 'i';
 	 if (str[K] == 'O')
 		 par->type = 'o';
 	 if (str[K] == 'U')
 		 par->type = 'u';
 	 if (str[K] >= 68 && str[K] <= 87)
 		 par->length = 3;
+	 if (str[K] == '%')
+		 par->type = 'a';
 	priorities(par);
 	parse_args7(p, par);
 }

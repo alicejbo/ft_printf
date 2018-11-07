@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 19:38:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/04 23:45:50 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 01:18:56 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,22 @@ void	ft_zeroes(t_params *par, char *baba, int size_nb)
 	int i;
 
 	i = 0;
+	if (baba[0] == '-' && (par->flags[0] == 0 && par->flags[4] == 0))
+		size_nb--;
 	while (i < (par->size_str - size_nb) || ((par->flags[0] == 1 
 					|| par->flags[4] == 1) && i <= (par->size_str - size_nb)))
 	{
-		printf("size nb %d\n", size_nb);
 		par->str[i] = '0';
 		i++;
 	}
 	if (baba[0] == '-')
 	{
 		par->str[0] = '-';
-		baba[0] = '0';
+		baba++;
 	}
 	if (par->flags[0] == 1 || par->flags[4] == 1)
 	{
-		if (baba[0] >= '0' && baba[0] <= '9')
+		if (par->str[0] >= '0' && par->str[0] <= '9')
 			par->str[0] = (par->flags[0] == 1) ? '+' : ' ';
 	}
 	ft_strcat(par->str, baba);
@@ -74,6 +75,7 @@ void	ft_justify(t_params *par, char *baba, int size_nb)
 		par->str[i] = ' ';
 		i++;
 	}
+	par->str[i] = '\0';
 }
 
 void	flag_i2(t_params *par, char *baba, int size_nb)
@@ -91,6 +93,8 @@ void	flag_i2(t_params *par, char *baba, int size_nb)
 	{
 		if ((int)par->w_arg == 0 && par->prec == 0)
 			size_nb--;
+		if (par->prec == size_nb && baba[0] == '-')
+			size_nb++;
 		while (i < (par->size_str - size_nb))
 		{
 			par->str[i] = ' ';

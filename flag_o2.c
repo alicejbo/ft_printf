@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 19:38:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/04 20:20:42 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 00:35:50 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_zeroes_o(t_params *par, char *baba, int size_nb)
 	int i;
 
 	i = 0;
-	if (par->flags[2] == 1)
+	if (par->flags[2] == 1 && (int)par->w_arg != 0)
 		size_nb--;
 	while (i < (par->size_str - size_nb))
 	{
@@ -31,7 +31,7 @@ void	ft_justify_o(t_params *par, char *baba, int size_nb)
 {
 	int i;
 
-	if (par->flags[2] == 1)
+	if (par->flags[2] == 1 && (int)par->w_arg != 0)
 		par->str[0] = '0';
 	i = size_nb;
 	ft_strcat(par->str, baba);
@@ -62,7 +62,7 @@ void	flag_o2(t_params *par, char *baba, int size_nb)
 			par->str[i] = ' ';
 			i++;
 		}
-		if (par->flags[2] == 1)
+		if (par->flags[2] == 1 && (int)par->w_arg != 0)
 			par->str[i] = '0';
 		ft_strcat(par->str, baba);
 	}

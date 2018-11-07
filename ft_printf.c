@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 07:14:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/03 20:22:18 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 05:09:48 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@ int		count_args(const char *format, t_infos *p)
 		if (format[I] == '%')
 		{
 			I++;
-			while (format[I] != 'n' && format[I] != 's' && format[I]
-					!= 'S' && format[I] != 'p' && format[I] != 'd' &&
-					format[I] != 'D' && format[I] != 'i' && 
-					format[I] != 'o' && format[I] != 'O' &&
-					format[I] != 'u' && format[I] != 'U' &&
-					format[I] != 'x' && format[I] != 'X' &&
-					format[I] != 'c' && format[I] != 'C' &&
-					format[I] != '%' && format[I] != '\0')
+			while (format[I] != 'n' && format[I] != 's'
+					&& format[I]!= 'S' && format[I] != 'p'
+					&& format[I] != 'd' && format[I] != 'D'
+					&& format[I] != 'i' && format[I] != 'o'
+					&& format[I] != 'O' && format[I] != 'u'
+					&& format[I] != 'U' && format[I] != 'x'
+					&& format[I] != 'X' && format[I] != 'c'
+					&& format[I] != 'C' && format[I] != '%'
+					&& format[I] != '\0')
 				I++;
 			if (format[I] != '%' && format[I] != '\0')
 				NBR++;

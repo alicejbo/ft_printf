@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/03 19:33:32 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 04:31:33 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "libft/libft.h"
+int FD;
 #define I p->i
 #define NBR p->nbr
 #define PAR p->par

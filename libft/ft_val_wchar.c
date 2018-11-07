@@ -6,11 +6,12 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/17 17:19:30 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/17 17:20:16 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 03:57:36 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int ft_val_wchar(wchar_t letter)
 {

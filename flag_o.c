@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/04 20:16:33 by abossard         ###   ########.fr       */
+/*   Updated: 2018/11/07 01:45:55 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char	*prec_o(t_params *par, char *baba)
 		}
 		ft_strcpy(baba2 + i, baba);
 	}
+	if (par->prec > (int)ft_strlen(baba) && par->flags[2] == 1)
+		par->flags[2] = 0;
 		return(baba2);
 }
 
@@ -51,7 +53,7 @@ char	*rempli_o(t_params *par, char *baba, int size_nb)
 	}
 	if (par->size_str > size_nb)
 		flag_o2(par, baba, size_nb);
-	else if (par->flags[2] == 1)
+	else if (par->flags[2] == 1 && ((int)par->w_arg != 0 || par->prec == 0))
 	{
 		par->str[0] = '0';
 		ft_strcat(par->str + 1, baba);
