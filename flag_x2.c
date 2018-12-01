@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 19:38:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 08:48:06 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/01 14:36:00 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	flag_x2(t_params *par, char *baba, int size_nb)
 			size_nb--;
 		if ((int)par->w_arg == 0 && par->flags[2] == 1)
 			size_nb = 0;
-		printf("size %d\n nb %d\n", par->size_str, size_nb);
+//		printf("size %d\n nb %d\n", par->size_str, size_nb);
 		while (i < (par->size_str - size_nb))
 		{
 			par->str[i] = ' ';

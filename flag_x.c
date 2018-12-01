@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 08:14:06 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/01 16:12:35 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char	*rempli_x(t_params *par, char *baba, int size_nb)
 {
 	char	*nb_preci;
 
+	printf("prec = %d\n size str = %d\n size nb = %d\n, width = %d\n", par->prec
+			, par->size_str, size_nb, par->width);
 	if ((size_t)par->prec > ft_strlen(baba) || (par->prec == 0
 				&& (int)par->w_arg == 0))
 	{
