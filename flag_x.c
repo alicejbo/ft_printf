@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/01 16:12:35 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/02 18:49:54 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ char	*rempli_x(t_params *par, char *baba, int size_nb)
 {
 	char	*nb_preci;
 
-	printf("prec = %d\n size str = %d\n size nb = %d\n, width = %d\n", par->prec
-			, par->size_str, size_nb, par->width);
+//	printf("prec = %d\n size str = %d\n size nb = %d\n, width = %d\n", par->prec
+//			, par->size_str, size_nb, par->width);
 	if ((size_t)par->prec > ft_strlen(baba) || (par->prec == 0
 				&& (int)par->w_arg == 0))
 	{
@@ -91,11 +91,12 @@ void	flag_x(t_params *par)
 	baba = length_x(par);
 	par->size_str = ft_strlen(baba);
 	size_nb = ft_strlen(baba);
-//	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
-//			par->size_str, baba);
-//	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
 	if (par->flags[2] == 1 && ((int)par->w_arg != 0 || par->type == 'p'))
+	{
+		if (par->prec > 0 && (par->type != 'p'))
+			par->width = par->width - 2;
 		size_nb = size_nb + 2;
+	}
 	if (par->size_str < par->width)
 		par->size_str = par->width;
 	if (size_nb < par->prec)
@@ -103,7 +104,7 @@ void	flag_x(t_params *par)
 	if (size_nb > par->size_str)
 		par->size_str = size_nb;
 //	printf("size 2 = %d\n\n", par->size_str);
-	par->str = ft_memalloc(par->size_str);
+	par->str = ft_memalloc(par->size_str + 4);
 	baba = rempli_x(par, baba, size_nb);
 	if (par->type == 'X')
 		par->str = ft_str_upper(par->str);

@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/04 18:13:43 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/02 19:30:04 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	back_zero(t_infos *p, t_params *par)
 {
-	if (par->flags[1] == 1)
+	if (par->flags[1] == 1 && par->width != -1)
 		p->size_buf = p->size_buf + par->width;
 	else
 		p->size_buf = p->size_buf + 1;

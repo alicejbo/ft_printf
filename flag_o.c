@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 07:27:14 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/02 19:02:33 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*prec_o(t_params *par, char *baba)
 	else
 	{
 		diff = (par->prec - ft_strlen(baba));
-		baba2 = ft_memalloc(par->size_str);
+		baba2 = ft_memalloc(par->size_str + 10);
 		while (i < diff)
 		{
 			baba2[i] = '0';
@@ -105,7 +105,7 @@ void	flag_o(t_params *par)
 	if (size_nb > par->size_str)
 		par->size_str = size_nb;
 //	printf("size 2 = %d\n\n", par->size_str);
-	par->str = ft_memalloc(par->size_str);
+	par->str = ft_memalloc(par->size_str + 10);
 	baba = rempli_o(par, baba, size_nb);
 	ft_strdel(&baba);
 }
