@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 23:08:39 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 05:45:36 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/21 17:05:10 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,13 @@ void	flag(t_params *par, int j, wchar_t *baba)
 		par->str[i - 1] = ' ';
 }
 
-void	big_s(t_infos *p, t_params *par, int j, int size)
+void	big_s(t_infos *p, t_params *par, int j, int size, int i)
 {
 	wchar_t		*baba;
-	int			i;
+//	int			i;
 
 	if (par->w_arg == NULL)
-			return (nulle(par));
+		return (nulle(par));
 	baba = par->w_arg;
 	while (baba[++j] != '\0')
 	{

@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_printbits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/18 18:54:46 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/18 19:34:05 by abossard         ###   ########.fr       */
+/*   Created: 2018/12/18 14:51:24 by abossard          #+#    #+#             */
+/*   Updated: 2018/12/18 14:55:37 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		main(int ac, char **av)
-{
-	void		*ptr;
-	double		nb;
+#include "libft.h"
 
-	nb = *(double)*ptr;
-	return (0);
+void	ft_printbits(unsigned char octet)
+{
+	int i;
+
+	i = 128;
+	while (octet >= 0 && i)
+	{
+		(octet / i) ? write(1, "1", 1) : write(1, "0", 1);
+		(octet / i) ? octet -= i : 0;
+		i /= 2;
+	}
 }

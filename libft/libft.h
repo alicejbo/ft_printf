@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 00:22:04 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/17 17:21:11 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/18 14:57:23 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,6 @@ int					ft_isupper(int c);
 int					ft_islower(int c);
 char				*ft_str_upper(char *str);
 int					ft_val_wchar(wchar_t letter);
+void				ft_printbits(unsigned char octet);
+
 #endif

@@ -6,7 +6,7 @@
 #    By: abossard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/31 18:13:04 by abossard          #+#    #+#              #
-#    Updated: 2018/11/03 23:17:05 by abossard         ###   ########.fr        #
+#    Updated: 2018/12/18 14:58:39 by abossard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC = big_c.c\
 	  flag_u2.c\
 	  flag_x.c\
 	  flag_x2.c\
+	  flag_f.c\
 	  ft_printf.c\
 	  list_args.c\
 	  list_params.c\
@@ -58,7 +59,8 @@ SRC_LIB = libft/ft_atoi.c\
 		  libft/ft_toupper.c\
 		  libft/ft_bzero.c\
 		  libft/ft_putchar.c\
-		  libft/ft_memdel.c
+		  libft/ft_memdel.c\
+		  libft/ft_printbits.c
 
 OBJ_LIB = ft_atoi.o\
 		  ft_itoa.o\
@@ -83,7 +85,8 @@ OBJ_LIB = ft_atoi.o\
 		  ft_bzero.o\
 		  ft_putnbr.o\
 		  ft_putchar.o\
-		  ft_memdel.o
+		  ft_memdel.o\
+		  ft_printbits.o
 
 OBJ = $(SRC:.c=.o)
 

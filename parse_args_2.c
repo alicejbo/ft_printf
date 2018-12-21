@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 15:09:59 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 05:21:29 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/09 23:25:10 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,7 @@ void	parse_args5(char *str, t_infos *p, t_params *par)
 		 par->type = 'C';
 	 if (str[K] == 'S')
 		 par->type = 'S';
+	 if (str[K] == 'f')
+		 par->type = 'f';
 	parse_args6(str, p, par);
 }

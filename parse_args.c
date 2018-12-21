@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 01:26:31 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 06:23:39 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/10 00:14:52 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,29 @@ void	priorities(t_params *par)
 void	parse_args4(char *str, t_infos *p, t_params *par)
 {
 	par->str = str;
-
-	par->length = (str[K] == 'h')? 1 : 0;
+	par->length = (str[K] == 'h') ? 1 : par->length;
 	if (str[K] == 'h' && str[K + 1] == 'h')
 	{
 		par->length = 2;
 		K++;
 	}
-	if (str[K] == 'l')
-		par->length = 3;
+	par->length = (str[K] == 'l') ? 3 : par->length;
 	if (str[K] == 'l' && str[K + 1] == 'l')
 	{
 		par->length = 4;
 		K++;
 	}
-	if (str[K] == 'j')
-		par->length = 5;
-	if (str[K] == 'z')
-		par->length = 6;
-	if (par->length != 0)
+	par->length = (str[K] == 'j') ? 5 : par->length;
+	par->length = (str[K] == 'z') ? 6 : par->length;
+	par->length = (str[K] == 'L') ? 7 : par->length;
+	par->length = (str[K] == 'H') ? 8 : par->length;
+	par->length = (str[K] == 'Q') ? 9 : par->length;
+	if (str[K] == 'Q' && str[K + 1] == 'Q')
+	{
+		par->length = 10;
 		K++;
+	}
+	K = (par->length != 0) ? K + 1 : K;
 	parse_args5(str, p, par);
 }
 

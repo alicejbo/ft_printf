@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 04:31:33 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/21 14:05:22 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ typedef struct			s_params
 	char				type;
 	void				*w_arg;
 	struct s_params		*next;
+	union
+	{
+		float			f;
+		double			d;
+		long double		ld;
+	};
 }						t_params;
 
 typedef struct			s_args
@@ -197,5 +203,11 @@ void	big_c(t_infos *p, t_params *par, int i);
 */
 
 void	big_s(t_infos *p, t_params *par, int j, int size);
+
+/*
+** flag_f.c
+*/
+
+void	flag_f(t_params *par);
 
 #endif

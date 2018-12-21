@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 06:39:23 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/08 23:29:20 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*rempli_i(t_params *par, char *baba, int size_nb)
 
 	i = 0;
 	if ((size_t)par->prec > ft_strlen(baba) || (par->prec == 0
-				&& (int)par->w_arg == 0) || ((int)ft_strlen(baba) == par->prec 
+				&& (int)par->w_arg == 0) || ((int)ft_strlen(baba) == par->prec
 				&& baba[0] == '-'))
 	{
 	//	if ((int)ft_strlen(baba) == par->prec && baba[0] == '-')

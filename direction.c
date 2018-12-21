@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 23:41:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 05:35:26 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/21 17:06:18 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,35 +68,26 @@ void	direction2(t_infos *p, t_params *par)
 void	direction1(t_infos *p, t_params *par)
 {
 	par->str = "\0";
-//	ft_putstr("a\n");
 	if (par->type == 'i')
 		flag_i(par);
-//	ft_putstr("b\n");
 	if (par->type == 'o')
 		flag_o(par);
-//	ft_putstr("c\n");
 	if (par->type == 'u')
 		flag_u(par);
-//	ft_putstr("d\n");
 	if (par->type == 'x' || par->type == 'X')
 		flag_x(par);
-//	ft_putstr("e\n");
 	if (par->type == 'c' && par->length != 3)
 		flag_c(p, par);
-//	ft_putstr("f\n");
 	if (par->type == 's' && par->length != 3)
 		flag_s(par);
-//	ft_putstr("g\n");
 	if (par->type == 'C' || (par->type == 'c' && par->length == 3))
 		big_c(p, par, -1);
-//	ft_putstr("h\n");
 	if (par->type == 'a')
 		flag_a(par);
-//	write(FD, "yo\n", 3);
-//	ft_putstr("i\n");
 	if (par->type == 'S' || (par->type == 's' && par->length == 3))
 		big_s(p, par, -1, 0);
-//	ft_putstr("j\n");
+	if (par->type == 'f')
+		flag_f(par);
 	direction2(p, par);
 	p->size_buf = p->size_buf + ft_strlen(par->str);
 }
