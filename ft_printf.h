@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/21 14:05:22 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/21 18:26:15 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ typedef struct			s_args
 {
 	void				*arg;
 	struct s_args		*next;
+	union
+	{
+		float			f1;
+		double			d1;
+		long double		ld1;
+	};
 }						t_args;
 
 typedef struct			s_infos
@@ -66,6 +72,7 @@ typedef struct			s_infos
 	int					nbr;
 	int					pos_arg;
 	int					mb_cur;
+	char				tab[1818][3];
 }						t_infos;
 
 /*

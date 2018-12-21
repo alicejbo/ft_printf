@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/08 23:29:20 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/21 17:17:41 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*prec_i(t_params *par, char *baba)
 {
-	int diff;
-	int i;
-	char *baba2;
+	int		diff;
+	int		i;
+	char	*baba2;
 
 	i = 0;
 	if (par->prec == 0 && (int)par->w_arg == 0)
@@ -41,12 +41,12 @@ char	*prec_i(t_params *par, char *baba)
 		else
 			ft_strcpy(baba2 + i, baba);
 	}
-	return(baba2);
+	return (baba2);
 }
 
 void	nb_seul(t_params *par, char *baba)
 {
-	if(par->flags[0] == 1 || par->flags[4] == 1)
+	if (par->flags[0] == 1 || par->flags[4] == 1)
 	{
 		if ((int)par->w_arg >= 0)
 			par->str[0] = (par->flags[0] == 1) ? '+' : ' ';
@@ -67,10 +67,9 @@ char	*rempli_i(t_params *par, char *baba, int size_nb)
 	//	if ((int)ft_strlen(baba) == par->prec && baba[0] == '-')
 	//		nb_preci = ft_strdup(baba + 1);
 	//	else
-			nb_preci = ft_strdup(baba);
+		nb_preci = ft_strdup(baba);
 		ft_strdel(&baba);
 		baba = prec_i(par, nb_preci);
-	//	printf("\nbaba = %s\n", baba);
 		ft_strdel(&nb_preci);
 	}
 	if (par->size_str > size_nb)
@@ -98,7 +97,7 @@ char	*length_i(t_params *par)
 		baba = ft_itoa_base((uintmax_t)par->w_arg, 10);
 	if (par->length == 6)
 		baba = ft_itoa_base((size_t)par->w_arg, 10);
-	return(baba);
+	return (baba);
 }
 
 void	flag_i(t_params *par)

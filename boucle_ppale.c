@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 04:53:33 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/08 18:18:01 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/21 17:10:38 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	boucle_ppale(const char *format, t_infos *p)
 	I++;
 	PAR->size_str = ft_strlen(PAR->str);
 	PAR = init_params(&p->para_beg);
-	while(format[I] != 'n' && format[I] != 's' && format[I] != 'S'
+	while (format[I] != 'n' && format[I] != 's' && format[I] != 'S'
 			&& format[I] != 'p' && format[I] != 'd' && format[I] != 'D'
 			&& format[I] != 'i' && format[I] != 'o' && format[I] != 'O'
 			&& format[I] != 'u' && format[I] != 'U' && format[I] != 'x'

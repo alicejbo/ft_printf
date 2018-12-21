@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 23:41:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/21 17:06:18 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/21 18:33:08 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	direction2(t_infos *p, t_params *par)
 {
 	int		*flag_n;
 
-//	ft_putstr("k\n");
 	if (par->type == 'p')
 	{
 //		if (par->w_arg == NULL)
@@ -52,17 +51,14 @@ void	direction2(t_infos *p, t_params *par)
 			flag_x(par);
 		}
 	}
-//	ft_putstr("l\n");
 	if (par->type == 'n')
 	{
 		flag_n = (int*)par->w_arg;
 		*flag_n = p->size_buf;
 		par->str = ft_strdup("\0");
 	}
-//	ft_putstr("m\n");
 	if (par->type == '\0')
 		par->str = ft_strdup("\0");
-//	ft_putstr("n\n");
 }
 
 void	direction1(t_infos *p, t_params *par)

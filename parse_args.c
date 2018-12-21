@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 01:26:31 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/10 00:14:52 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/21 18:43:19 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	parse_args4(char *str, t_infos *p, t_params *par)
 	par->length = (str[K] == 'z') ? 6 : par->length;
 	par->length = (str[K] == 'L') ? 7 : par->length;
 	par->length = (str[K] == 'H') ? 8 : par->length;
-	par->length = (str[K] == 'Q') ? 9 : par->length;
+	par->length = (str[K] == 'Q') ? 0 : par->length;
 	if (str[K] == 'Q' && str[K + 1] == 'Q')
 	{
 		par->length = 10;

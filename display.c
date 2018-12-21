@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 00:02:44 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 01:18:36 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/21 17:14:33 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ static int		ft_strcatbis(char *s1, const char *s2, int i)
 	return ((int)i);
 }
 
-
-void	display(t_infos *p, t_params *par)
+void			display(t_infos *p, t_params *par)
 {
 	int		i;
 
@@ -51,7 +50,7 @@ void	display(t_infos *p, t_params *par)
 	p->buf = ft_memalloc(sizeof(char) * p->size_buf + 1);
 	while (par)
 	{
-		if ((par->type == 'c' || par->type == 'C') 
+		if ((par->type == 'c' || par->type == 'C')
 				&& (unsigned char)par->w_arg == '\0')
 			i = ft_strnncat(p->buf, par->str, par->size_str, i);
 		else

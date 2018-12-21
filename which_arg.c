@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 19:16:11 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/21 17:02:31 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/21 18:57:54 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,21 @@ void	which_arg(t_infos *p, t_params *par)
 		count++;
 		if (count == p->pos_arg)
 		{
-//			if (par->type != 'f')
+			if (par->type != 'f')
 				par->w_arg = p->arg_info->arg;
-//			else
-//			{
-//				if (par->length == 10 || par->length == 7)
-//					par->ld = p->arg_info->arg;
-//				else if (par->length == 8)
-//					par->f = p->arg_info->arg;
-//				else if (par->length == 9 || par->length == 0)
-//					par->d = p->arg_info->arg;
-//			}
+			else
+			{
+				if (par->length == 10 || par->length == 7)
+				{
+					par->ld = p->arg_info->ld1;
+					printf("ld = %Lf\n", par->ld);
+					printf("ld1 = %Lf\n", p->arg_info->ld1);
+				}
+				else if (par->length == 8)
+				par->f = p->arg_info->f1;
+				else if (par->length == 0)
+					par->d = p->arg_info->d1;
+			}
 		}
 		p->arg_info = p->arg_info->next;
 	}
