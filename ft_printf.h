@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/30 18:29:22 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/30 23:00:09 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,5 +222,11 @@ void	flag_f(t_params *par);
 */
 
 char	*rempli_f(t_params *par, char *baba, int size_nb);
+
+/*
+** flag_f3.c
+*/
+
+void	ft_plus_sign_f(t_params *par, char *baba, int size_nb);
 
 #endif

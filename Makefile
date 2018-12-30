@@ -6,7 +6,7 @@
 #    By: abossard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/31 18:13:04 by abossard          #+#    #+#              #
-#    Updated: 2018/12/30 18:29:38 by abossard         ###   ########.fr        #
+#    Updated: 2018/12/30 23:00:38 by abossard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC = big_c.c\
 	  flag_x2.c\
 	  flag_f.c\
 	  flag_f2.c\
+	  flag_f3.c\
 	  ft_printf.c\
 	  list_args.c\
 	  list_params.c\
