@@ -6,25 +6,22 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 15:51:09 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/30 17:52:01 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/30 20:30:45 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_size_nb(char *baba, t_params *par, int size_nb)
+int		ft_size_nb(t_params *par, char *baba, int size_nb)
 {
 	int i;
 
 	i = 0;
 	while (baba[i++] != '.')
-	{
 		size_nb++;
-		printf("nb = %d\n", size_nb);
-	}
 	if ((ft_strlen(baba) - (size_nb + 1)) > 6 && par->prec == -1)
-		size_nb = size_nb + 6;
-	else if (par->prec > 0)
+		size_nb = size_nb + 7;
+	else if (par->prec > 0 || (par->prec == 0 && par->flags[1] == 1))
 		size_nb = size_nb + par->prec + 1;
 	return (size_nb);
 }
@@ -33,6 +30,7 @@ char	*ft_deci(int i, long double nb, int tmp, char *baba)
 {
 	while (nb > 0)
 	{
+//		printf("nb = %.19Lf\n", nb);
 		nb = nb * 10;
 		tmp = nb / 1;
 		nb = nb - tmp;
@@ -46,7 +44,7 @@ char	*ft_nbr_f(long double str_b, char *baba)
 {
 	int				i;
 	long double		nb;
-	long double		tmp;
+	int				tmp;
 
 	i = 0;
 	if (str_b < 0)
@@ -61,9 +59,8 @@ char	*ft_nbr_f(long double str_b, char *baba)
 	while (nb >= 1)
 	{
 		tmp = nb / 1;
-		printf("nb = %Lf\n", nb);
 		nb = nb - tmp;
-		baba = ft_itoa(tmp);
+		baba = ft_strcat(baba, ft_itoa(tmp));
 		i = i + ft_strlen(ft_itoa(tmp));
 	}
 	baba[i++] = '.';
@@ -101,9 +98,14 @@ void	flag_f(t_params *par)
 
 	size_nb = 0;
 	baba = length_f(par);
-//	par->size_str = ft_strlen(baba);
-//	size_nb = ft_size_nb(baba, par, size_nb);
+	size_nb = ft_size_nb(par, baba, size_nb);
+	par->size_str = size_nb;
+	if (par->size_str < par->width)
+		par->size_str = par->width;
 //	printf("size_nb = %d\n", size_nb);
+//	par->str = ft_memalloc(par->size_str);
+	baba = rempli_f(par, baba, size_nb);
 	par->str = baba;
+//	ft_strdel(&baba);
 	//	printf("baba = %s\n", baba);
 }

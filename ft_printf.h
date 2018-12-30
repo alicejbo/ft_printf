@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/21 18:26:15 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/30 18:29:22 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,5 +216,11 @@ void	big_s(t_infos *p, t_params *par, int j, int size);
 */
 
 void	flag_f(t_params *par);
+
+/*
+** flag_f2.c
+*/
+
+char	*rempli_f(t_params *par, char *baba, int size_nb);
 
 #endif
