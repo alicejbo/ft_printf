@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 18:29:48 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/30 23:26:21 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/31 19:47:30 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,8 @@ char	*ft_arrondi(t_params *par, char *baba, int j)
 			baba[j] = baba[j] + 1;
 		}
 	}
-	if (ft_strlen(baba) == 2 && (int)par->w_arg == 0)
+	if (baba[ft_strlen(baba) - 1] == '.' || (ft_strlen(baba) == 2 
+				&& (int)par->w_arg == 0))
 	{
 		while (--j >= 0 && baba[j] != '.')
 			baba[j] = '0';

@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 15:51:09 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/30 23:25:30 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/31 21:01:59 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,16 @@ int		ft_size_nb(t_params *par, char *baba, int size_nb)
 char	*ft_deci(int i, long double nb, char *baba)
 {
 	int				tmp;
+	char			*baba2;
 
 	while (nb >= 1)
 	{
 		tmp = nb / 1;
 		nb = nb - tmp;
-		baba = ft_strcat(baba, ft_itoa(tmp));
-		i = i + ft_strlen(ft_itoa(tmp));
+		baba2 = ft_itoa(tmp);
+		baba = ft_strcpy(baba, baba2);
+		i = i + ft_strlen(baba2);
+		free(baba2);
 	}
 	baba[i++] = '.';
 	while (nb > 0)
@@ -44,7 +47,9 @@ char	*ft_deci(int i, long double nb, char *baba)
 		nb = nb * 10;
 		tmp = nb / 1;
 		nb = nb - tmp;
-		baba[i] = ft_itoa(tmp)[0];
+		baba2 = ft_itoa(tmp);
+		baba[i] = baba2[0];
+		free(baba2);
 		i++;
 	}
 	return (baba);
@@ -76,19 +81,11 @@ char	*length_f(t_params *par)
 	//	printf("arg = %f\n", par->f);
 	baba = ft_memalloc(1500);
 	if (par->length == 0 || par->length == 9)
-	{
 		baba = ft_nbr_f(par->d, baba);
-	}
 	if (par->length == 7 || par->length == 10)
-	{
-		//		printf("l double %Lf\n", nb_ld);
 		baba = ft_nbr_f(par->ld, baba);
-	}
 	if (par->length == 8)
-	{
-		//		printf("float %Lf\n", nb_ld);
 		baba = ft_nbr_f(par->f, baba);
-	}
 	return (baba);
 }
 
@@ -106,9 +103,8 @@ void	flag_f(t_params *par)
 			par->size_str++;
 	if (par->size_str < par->width)
 		par->size_str = par->width;
-//	printf("size_nb = %d\n", size_nb);
+	printf("baba = %s\n", baba);
 	par->str = ft_memalloc(par->size_str);
 	baba = rempli_f(par, baba, size_nb);
-//	par->str = baba;
 	ft_strdel(&baba);
 }

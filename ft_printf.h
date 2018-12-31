@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/30 23:00:09 by abossard         ###   ########.fr       */
+/*   Updated: 2018/12/31 18:57:48 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <math.h>
 #include "libft/libft.h"
-int FD;
 #define I p->i
 #define NBR p->nbr
 #define PAR p->par
@@ -228,5 +228,11 @@ char	*rempli_f(t_params *par, char *baba, int size_nb);
 */
 
 void	ft_plus_sign_f(t_params *par, char *baba, int size_nb);
+
+/*
+** flag_f_ex.c
+*/
+
+// char	*flag_f_ex(t_params *par, int size_nb);
 
 #endif
