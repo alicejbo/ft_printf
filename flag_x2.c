@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 19:38:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/02 20:18:17 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:32:18 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_zeroes_x(t_params *par, char *baba, int size_nb)
 		par->str[i] = '0';
 		i++;
 	}
-		ft_strcat(par->str, baba);
+	ft_strcat(par->str, baba);
 }
 
 void	ft_justify_x(t_params *par, char *baba, int size_nb)
@@ -56,7 +56,7 @@ void	flag_x2(t_params *par, char *baba, int size_nb)
 	int i;
 
 	i = 0;
-	size_nb = (par->flags[2] == 1 && ((par->prec != -1 && par->type != 'p') 
+	size_nb = (par->flags[2] == 1 && ((par->prec != -1 && par->type != 'p')
 				&& (int)par->w_arg == 0)) ? size_nb + 2 : size_nb;
 	if (par->flags[1] == 1)
 		ft_justify_x(par, baba, size_nb);
@@ -64,20 +64,12 @@ void	flag_x2(t_params *par, char *baba, int size_nb)
 		ft_zeroes_x(par, baba, size_nb);
 	else
 	{
-	//	printf("prec = %d\n size str = %d\n size nb = %d\n, width = %d\n", par->prec
-	//			, par->size_str, size_nb, par->width);
 		if ((int)par->w_arg == 0 && par->type != 'p')
 			size_nb--;
 		if ((int)par->w_arg == 0 && par->flags[2] == 1 && par->type != 'p')
 			size_nb = 0;
-	//	if (par->flags[2] == 1 && par->type != 'p')
-	//		size_nb = size_nb + 2;
-	//	printf("size %d\n nb %d\n", par->size_str, size_nb);
 		while (i < (par->size_str - size_nb))
-		{
-			par->str[i] = ' ';
-			i++;
-		}
+			par->str[i++] = ' ';
 		if (par->flags[2] == 1 && ((int)par->w_arg != 0 || par->type == 'p'))
 		{
 			par->str[i++] = '0';

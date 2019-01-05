@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 23:08:39 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/21 17:10:15 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 20:12:16 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	nulle(t_params *par)
 
 	baba2 = ft_strdup("(null)\0");
 	par->size_str = ft_strlen(baba2);
-	//ft_putnbr(par->size_str);
 	if (par->size_str < par->width)
 		flag2(par, baba2);
 	else
@@ -84,15 +83,26 @@ void	nulle(t_params *par)
 	ft_strdel(&baba2);
 }
 
-void	flag(t_params *par, int j, wchar_t *baba)
+void	flag(t_params *par, int j, wchar_t *baba, int size)
 {
 	int		i;
 
-	i = 0;
-	while (baba[++j] != '\0')
-		i = wstring_s(baba[j], par->str, i, 0);
-	while (++i <= par->width)
-		par->str[i - 1] = ' ';
+	if (par->flags[1] == 1)
+	{
+		i = 0;
+		while (baba[++j] != '\0')
+			i = wstring_s(baba[j], par->str, i, 0);
+		while (++i <= par->width)
+			par->str[i - 1] = ' ';
+	}
+	else
+	{
+		i = -1;
+		while (++i < par->width - size)
+			par->str[i] = ' ';
+		while (baba[++j] != '\0')
+			i = wstring_s(baba[j], par->str, i, 0);
+	}
 }
 
 void	big_s(t_infos *p, t_params *par, int j, int size)
@@ -103,6 +113,7 @@ void	big_s(t_infos *p, t_params *par, int j, int size)
 	if (par->w_arg == NULL)
 		return (nulle(par));
 	baba = par->w_arg;
+	par->str = NULL;
 	while (baba[++j] != '\0')
 	{
 		if (ft_val_wchar(baba[j]) > MB_CUR_MAX)
@@ -114,14 +125,5 @@ void	big_s(t_infos *p, t_params *par, int j, int size)
 	}
 	j = -1;
 	par->str = (char*)ft_memalloc(size + par->width + 100);
-	if (par->flags[1] == 1)
-		flag(par, j, baba);
-	else
-	{
-		i = -1;
-		while (++i < par->width - size)
-			par->str[i] = ' ';
-		while (baba[++j] != '\0')
-			i = wstring_s(baba[j], par->str, i, 0);
-	}
+	flag(par, j, baba, size);
 }

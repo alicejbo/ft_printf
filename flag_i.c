@@ -6,19 +6,17 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/30 20:17:42 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 19:53:24 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*prec_i(t_params *par, char *baba)
+char	*prec_i(t_params *par, char *baba, int i)
 {
 	int		diff;
-	int		i;
 	char	*baba2;
 
-	i = 0;
 	if (par->prec == 0 && (int)par->w_arg == 0)
 		baba2 = ft_strdup("\0");
 	else
@@ -32,10 +30,7 @@ char	*prec_i(t_params *par, char *baba)
 			diff = diff + 2;
 		}
 		while (i < diff)
-		{
-			baba2[i] = '0';
-			i++;
-		}
+			baba2[i++] = '0';
 		if (baba[0] == '-')
 			ft_strcpy(baba2 + i, baba + 1);
 		else
@@ -64,12 +59,9 @@ char	*rempli_i(t_params *par, char *baba, int size_nb)
 				&& (int)par->w_arg == 0) || ((int)ft_strlen(baba) == par->prec
 				&& baba[0] == '-'))
 	{
-	//	if ((int)ft_strlen(baba) == par->prec && baba[0] == '-')
-	//		nb_preci = ft_strdup(baba + 1);
-	//	else
 		nb_preci = ft_strdup(baba);
 		ft_strdel(&baba);
-		baba = prec_i(par, nb_preci);
+		baba = prec_i(par, nb_preci, 0);
 		ft_strdel(&nb_preci);
 	}
 	if (par->size_str > size_nb)
@@ -108,9 +100,6 @@ void	flag_i(t_params *par)
 	baba = length_i(par);
 	par->size_str = ft_strlen(baba);
 	size_nb = ft_strlen(baba);
-//		printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
-//				par->size_str, baba);
-	//	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
 	if (par->flags[0] == 1 || par->flags[4] == 1)
 		if (baba[0] != '-')
 		{
@@ -123,7 +112,6 @@ void	flag_i(t_params *par)
 		size_nb = par->prec;
 	if (size_nb > par->size_str)
 		par->size_str = size_nb;
-//	printf("prec = %d\n\n", par->prec);
 	par->str = ft_memalloc(par->size_str);
 	baba = rempli_i(par, baba, size_nb);
 	ft_strdel(&baba);

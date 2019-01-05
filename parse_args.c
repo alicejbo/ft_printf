@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 01:26:31 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/21 18:43:19 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:52:06 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	priorities(t_params *par)
 	{
 		if (par->flags[1] == 1)
 			par->flags[3] = 0;
-		if ((par->type == 'd' || par->type == 'D' || par->type == 'i' 
+		if ((par->type == 'd' || par->type == 'D' || par->type == 'i'
 				|| par->type == 'o' || par->type == 'O' || par->type == 'u'
 				|| par->type == 'U' || par->type == 'x' || par->type == 'X')
 				&& par->prec != -1)
-		par->flags[3]= 0;
+			par->flags[3] = 0;
 	}
 	if (par->flags[0] == 1)
 		if (par->flags[4] == 1)
@@ -63,7 +63,6 @@ void	parse_args4(char *str, t_infos *p, t_params *par)
 void	parse_args3(char *str, t_infos *p, t_params *par)
 {
 	par->str = str;
-
 	if (str[K] == '.')
 	{
 		K++;
@@ -94,7 +93,7 @@ void	parse_args1(char *str, t_infos *p, t_params *par)
 			|| str[K] == ' ')
 	{
 		while (str[K] == '+' || str[K] == '-' || str[K] == '#'
-			|| str[K] =='0' || str[K] == ' ')
+			|| str[K] == '0' || str[K] == ' ')
 		{
 			if (str[K] == '+')
 				par->flags[0] = 1;

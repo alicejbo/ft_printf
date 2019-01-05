@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/02 19:02:33 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:22:16 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*prec_o(t_params *par, char *baba)
 {
-	int diff;
-	int i;
-	char *baba2;
+	int		diff;
+	int		i;
+	char	*baba2;
 
 	i = 0;
 	if (par->prec == 0 && (int)par->w_arg == 0)
@@ -34,7 +34,7 @@ char	*prec_o(t_params *par, char *baba)
 	}
 	if (par->prec > (int)ft_strlen(baba) && par->flags[2] == 1)
 		par->flags[2] = 0;
-		return(baba2);
+	return (baba2);
 }
 
 char	*rempli_o(t_params *par, char *baba, int size_nb)
@@ -60,7 +60,7 @@ char	*rempli_o(t_params *par, char *baba, int size_nb)
 	}
 	else
 		ft_strcat(par->str, baba);
-		return (baba);
+	return (baba);
 }
 
 char	*length_o(t_params *par)
@@ -81,7 +81,7 @@ char	*length_o(t_params *par)
 		baba = ft_itoa_base_ll((uintmax_t)par->w_arg, 8);
 	if (par->length == 6)
 		baba = ft_itoa_base_ll((ssize_t)par->w_arg, 8);
-	return(baba);
+	return (baba);
 }
 
 void	flag_o(t_params *par)
@@ -92,10 +92,7 @@ void	flag_o(t_params *par)
 	baba = length_o(par);
 	par->size_str = ft_strlen(baba);
 	size_nb = ft_strlen(baba);
-//	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
-//			par->size_str, baba);
-//	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
-	if (par->flags[2] == 1 && ((int)par->w_arg != 0 || (par->prec == 0 
+	if (par->flags[2] == 1 && ((int)par->w_arg != 0 || (par->prec == 0
 					&& (int)par->w_arg == 0)))
 		size_nb++;
 	if (par->size_str < par->width)
@@ -104,7 +101,6 @@ void	flag_o(t_params *par)
 		size_nb = par->prec;
 	if (size_nb > par->size_str)
 		par->size_str = size_nb;
-//	printf("size 2 = %d\n\n", par->size_str);
 	par->str = ft_memalloc(par->size_str + 10);
 	baba = rempli_o(par, baba, size_nb);
 	ft_strdel(&baba);

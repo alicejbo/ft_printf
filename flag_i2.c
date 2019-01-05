@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/30 19:38:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 06:33:43 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:19:58 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,13 @@ void	ft_plus_sign(t_params *par, char *baba, int size_nb)
 	i = 0;
 	if (par->flags[4] == 1 && par->prec == -1)
 		size_nb--;
-		while (i < (par->size_str - size_nb - 1))
+	while (i < (par->size_str - size_nb - 1))
 	{
 		par->str[i] = ' ';
 		i++;
 	}
 	if (par->flags[0] == 1 || par->flags[4] == 1)
 	{
-//		printf("str %d\n", par->size_str);
-//		printf("i %d\n", i);
 		if ((int)par->w_arg >= 0)
 			par->str[i] = (par->flags[0] == 1) ? '+' : ' ';
 	}
@@ -41,7 +39,7 @@ void	ft_zeroes(t_params *par, char *baba, int size_nb)
 	i = 0;
 	if (baba[0] == '-' && (par->flags[0] == 0 && par->flags[4] == 0))
 		size_nb--;
-	while (i < (par->size_str - size_nb) || ((par->flags[0] == 1 
+	while (i < (par->size_str - size_nb) || ((par->flags[0] == 1
 					|| par->flags[4] == 1) && i <= (par->size_str - size_nb)))
 	{
 		par->str[i] = '0';

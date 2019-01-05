@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 05:40:56 by abossard          #+#    #+#             */
-/*   Updated: 2018/07/12 03:43:40 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:34:34 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_args		*init_args(t_args **begin_list)
 	if (*begin_list == NULL)
 	{
 		*begin_list = ft_memalloc(sizeof(t_args));
-		return(*begin_list);
+		return (*begin_list);
 	}
 	else
 	{
@@ -28,7 +28,7 @@ t_args		*init_args(t_args **begin_list)
 			element = element->next;
 		element->next = ft_memalloc(sizeof(t_args));
 	}
-	return(element->next);
+	return (element->next);
 }
 
 void		delete_args(t_args **begin_list)

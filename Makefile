@@ -6,7 +6,7 @@
 #    By: abossard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/31 18:13:04 by abossard          #+#    #+#              #
-#    Updated: 2018/12/31 18:57:38 by abossard         ###   ########.fr        #
+#    Updated: 2019/01/05 19:58:01 by abossard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = libftprintf.a
 SRC = big_c.c\
 	  big_s.c\
 	  boucle_ppale.c\
+	  boucle_cargs.c\
 	  direction.c\
 	  display.c\
 	  flag_c.c\

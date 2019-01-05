@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 04:53:33 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/21 17:10:38 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 19:27:01 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,10 @@ void	boucle_ppale(const char *format, t_infos *p)
 			&& format[I] != 'i' && format[I] != 'o' && format[I] != 'O'
 			&& format[I] != 'u' && format[I] != 'U' && format[I] != 'x'
 			&& format[I] != 'X' && format[I] != 'c' && format[I] != 'C'
-			&& format[I] != 'f' && format[I] != '%' && format[I + 1] != '\0')
+			&& format[I] != 'f' && format[I] != 'F' && format[I] != '%'
+			&& format[I + 1] != '\0')
 		I++;
 	parse_args1(ft_strsub(format, J, ((I - J) + 1)), p, PAR);
 	J = I + 1;
-/*	printf("_________________\n| flags 0 = %d   |\n", PAR->flags[0]);
-	printf("| flags 1 = %d   |\n", PAR->flags[1]);
-	printf("| flags 2 = %d   |\n", PAR->flags[2]);
-	printf("| flags 3 = %d   |\n", PAR->flags[3]);
-	printf("| flags 4 = %d   |\n_________________\n", PAR->flags[4]);
-	printf("+++++++++++++++++\n| width = %d    |\n+++++++++++++++++\n", PAR->width);
-	printf("#################\n| precision = %d|\n#################\n", PAR->prec);
-	printf("*****************\n| length = %d    |\n*****************\n", PAR->length);*/
-//	printf("xxxxxxxxxxxxxxxxx\n| type = %c      |\nxxxxxxxxxxxxxxxxx\n", PAR->type);
 	PAR = init_params(&p->para_beg);
 }

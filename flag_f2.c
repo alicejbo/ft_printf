@@ -6,13 +6,13 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 18:29:48 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/31 19:47:30 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 19:46:23 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_zeroes_f(t_params *par, char *baba, int size_nb	)
+void	ft_zeroes_f(t_params *par, char *baba, int size_nb)
 {
 	int i;
 
@@ -71,10 +71,6 @@ void	flag_f2(t_params *par, char *baba, int size_nb)
 		ft_plus_sign_f(par, baba, size_nb);
 	else
 	{
-		//	if ((int)par->w_arg == 0 && par->prec == 0)
-		//		size_nb--;
-		//	if (par->prec == size_nb && baba[0] == '-')
-		//		size_nb++;
 		while (i < (par->size_str - size_nb))
 		{
 			par->str[i] = ' ';
@@ -102,7 +98,7 @@ char	*ft_arrondi(t_params *par, char *baba, int j)
 			baba[j] = baba[j] + 1;
 		}
 	}
-	if (baba[ft_strlen(baba) - 1] == '.' || (ft_strlen(baba) == 2 
+	if (baba[ft_strlen(baba) - 1] == '.' || (ft_strlen(baba) == 2
 				&& (int)par->w_arg == 0))
 	{
 		while (--j >= 0 && baba[j] != '.')

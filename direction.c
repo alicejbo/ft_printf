@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 23:41:40 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/30 15:12:35 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 19:30:04 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,6 @@ void	direction2(t_infos *p, t_params *par)
 
 	if (par->type == 'p')
 	{
-//		if (par->w_arg == NULL)
-//			par->str = ft_strdup("0x0");
-//		else
 		{
 			par->flags[2] = 1;
 			par->length = 3;
@@ -82,8 +79,9 @@ void	direction1(t_infos *p, t_params *par)
 		flag_a(par);
 	if (par->type == 'S' || (par->type == 's' && par->length == 3))
 		big_s(p, par, -1, 0);
-	if (par->type == 'f')
+	if (par->type == 'f' || par->type == 'F')
 		flag_f(par);
 	direction2(p, par);
-	p->size_buf = p->size_buf + ft_strlen(par->str);
+	if (par->str)
+		p->size_buf = p->size_buf + ft_strlen(par->str);
 }

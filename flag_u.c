@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 01:23:00 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:24:35 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*prec_u(t_params *par, char *baba)
 {
-	int diff;
-	int i;
-	char *baba2;
+	int		diff;
+	int		i;
+	char	*baba2;
 
 	i = 0;
 	if (par->prec == 0 && (int)par->w_arg == 0)
@@ -32,7 +32,7 @@ char	*prec_u(t_params *par, char *baba)
 		}
 		ft_strcpy(baba2 + i, baba);
 	}
-		return (baba2);
+	return (baba2);
 }
 
 char	*rempli_u(t_params *par, char *baba, int size_nb)
@@ -41,7 +41,7 @@ char	*rempli_u(t_params *par, char *baba, int size_nb)
 	char	*nb_preci;
 
 	i = 0;
-	if ((size_t)par->prec > ft_strlen(baba) || (par->prec == 0 
+	if ((size_t)par->prec > ft_strlen(baba) || (par->prec == 0
 				&& (int)par->w_arg == 0))
 	{
 		nb_preci = ft_strdup(baba);
@@ -74,7 +74,7 @@ char	*length_u(t_params *par)
 		baba = ft_itoa_base_ll((uintmax_t)par->w_arg, 10);
 	if (par->length == 6)
 		baba = ft_itoa_base_ll((ssize_t)par->w_arg, 10);
-	return(baba);
+	return (baba);
 }
 
 void	flag_u(t_params *par)
@@ -85,16 +85,12 @@ void	flag_u(t_params *par)
 	baba = length_u(par);
 	par->size_str = ft_strlen(baba);
 	size_nb = ft_strlen(baba);
-//	printf("^^^^^^^^^^^^^^^^^\n| taille baba = %d|\n^^^^^^^^^^^^^^^^^\n\nchar aba = %s\n", 
-//			par->size_str, baba);
-//	printf("argggg =   %d\n", (long long int)p->args_beg->arg);
 	if (par->size_str < par->width)
 		par->size_str = par->width;
 	if (size_nb < par->prec)
 		size_nb = par->prec;
 	if (size_nb > par->size_str)
 		par->size_str = size_nb;
-//	printf("size 2 = %d\n\n", par->size_str);
 	par->str = ft_memalloc(par->size_str);
 	baba = rempli_u(par, baba, size_nb);
 	ft_strdel(&baba);

@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 15:51:09 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/31 21:01:59 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 20:24:23 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ int		ft_size_nb(t_params *par, char *baba, int size_nb)
 
 char	*ft_deci(int i, long double nb, char *baba)
 {
-	int				tmp;
+	long long		tmp;
 	char			*baba2;
 
 	while (nb >= 1)
 	{
 		tmp = nb / 1;
 		nb = nb - tmp;
-		baba2 = ft_itoa(tmp);
-		baba = ft_strcpy(baba, baba2);
+		baba2 = ft_itoa_base_ll(tmp, 10);
+		baba = ft_strcat(baba, baba2);
 		i = i + ft_strlen(baba2);
 		free(baba2);
 	}
@@ -78,7 +78,6 @@ char	*length_f(t_params *par)
 {
 	char			*baba;
 
-	//	printf("arg = %f\n", par->f);
 	baba = ft_memalloc(1500);
 	if (par->length == 0 || par->length == 9)
 		baba = ft_nbr_f(par->d, baba);
@@ -103,8 +102,9 @@ void	flag_f(t_params *par)
 			par->size_str++;
 	if (par->size_str < par->width)
 		par->size_str = par->width;
-	printf("baba = %s\n", baba);
 	par->str = ft_memalloc(par->size_str);
 	baba = rempli_f(par, baba, size_nb);
+	if (par->type == 'F')
+		par->str = ft_str_upper(par->str);
 	ft_strdel(&baba);
 }

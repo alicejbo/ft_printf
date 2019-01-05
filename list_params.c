@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 08:25:59 by abossard          #+#    #+#             */
-/*   Updated: 2018/10/02 15:57:50 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 16:56:26 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_params	*init_params(t_params **begin_list)
 		element = *begin_list;
 		element->width = -1;
 		element->prec = -1;
-		return(*begin_list);
+		return (*begin_list);
 	}
 	else
 	{
@@ -33,7 +33,7 @@ t_params	*init_params(t_params **begin_list)
 		element->next->width = -1;
 		element->next->prec = -1;
 	}
-	return(element->next);
+	return (element->next);
 }
 
 void		delete_params(t_params **begin_list)
@@ -43,11 +43,12 @@ void		delete_params(t_params **begin_list)
 
 	element = *begin_list;
 	while (element != NULL)
-		{
+	{
+		if (element->str)
 			ft_strdel(&element->str);
-			delete = element;
-			element = element->next;
-			free(delete);
-		}
+		delete = element;
+		element = element->next;
+		free(delete);
+	}
 	*begin_list = NULL;
 }

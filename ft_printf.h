@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 05:51:18 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/31 18:57:48 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 20:42:37 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "libft/libft.h"
+#include "ft_errno.h"
 #define I p->i
 #define NBR p->nbr
 #define PAR p->par
@@ -120,6 +121,12 @@ void		parse_args5(char *str, t_infos *p, t_params *par);
 */
 
 void		boucle_ppale(const char *format, t_infos *p);
+
+/*
+** boucle_cargs.c
+*/
+
+void		boucle_cargs(const char *format, t_infos *p);
 
 /*
 ** direction.c

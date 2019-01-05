@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 22:57:10 by abossard          #+#    #+#             */
-/*   Updated: 2018/12/30 23:24:47 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 19:43:46 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	ft_plus_sign_f(t_params *par, char *baba, int size_nb)
 	}
 	if (par->flags[0] == 1 || par->flags[4] == 1)
 	{
-		//printf("str %d\n", par->si		ze_str);
-		////printf("i %d\n", i);
 		if ((int)par->w_arg >= 0)
 			par->str[i] = (par->flags[0] == 1) ? '+' : ' ';
 	}

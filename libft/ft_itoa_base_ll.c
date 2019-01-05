@@ -6,7 +6,7 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 17:39:05 by abossard          #+#    #+#             */
-/*   Updated: 2018/09/25 17:42:36 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:50:09 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_itoa_base_ll(unsigned long long int value, int base)
 
 	tmp = value;
 	i = (value == 0) ? 1 : 0;
-	while		(tmp)
+	while (tmp)
 	{
 		tmp = tmp / base;
 		i++;

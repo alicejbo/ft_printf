@@ -6,14 +6,14 @@
 /*   By: abossard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/17 17:19:30 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 03:57:36 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:49:05 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int ft_val_wchar(wchar_t letter)
+int		ft_val_wchar(wchar_t letter)
 {
 	int size;
 

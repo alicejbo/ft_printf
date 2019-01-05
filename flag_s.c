@@ -6,7 +6,7 @@
 /*   By: abossard <abossard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 20:55:41 by abossard          #+#    #+#             */
-/*   Updated: 2018/11/07 04:32:00 by abossard         ###   ########.fr       */
+/*   Updated: 2019/01/05 16:41:49 by abossard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,6 @@ void	flag_s(t_params *par)
 		flag_s2(par, baba);
 	else
 	{
-	/*	ft_putnbr(par->size_str);
-		ft_putchar('\n');
-		ft_putstr(baba);
-		ft_putchar('\n');*/
 		par->str = ft_memalloc(par->size_str);
 		par->str = ft_strcpy(par->str, baba);
 	}
